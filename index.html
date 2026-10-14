@@ -1,0 +1,939 @@
+<!DOCTYPE html>
+<html lang="zh-TW">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>The Romance of Research — Rongkang Pei (裴 榮康) | Tohoku University</title>
+  <meta name="description" content="Rongkang Pei is a doctoral researcher at Tohoku University working across computational social science, digital humanities, generative AI, academic careers, and gender inequality." />
+  <meta name="author" content="Rongkang Pei" />
+  <meta name="theme-color" content="#faf9f5" />
+  <link rel="canonical" href="https://peirongkang.github.io/" />
+  <link rel="icon" href="portrait.jpg" type="image/jpeg" />
+  <meta property="og:type" content="website" />
+  <meta property="og:title" content="The Romance of Research — Rongkang Pei" />
+  <meta property="og:description" content="Computational social science, digital humanities, generative AI, and the institutions that shape academic careers." />
+  <meta property="og:url" content="https://peirongkang.github.io/" />
+  <meta property="og:image" content="https://peirongkang.github.io/portrait.jpg" />
+  <meta name="twitter:card" content="summary_large_image" />
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Cormorant+Garamond:ital,wght@0,500;0,600;0,700;1,400&family=Inter:wght@300;400;500;600&family=Noto+Sans+JP:wght@300;400;500;600&family=Noto+Serif+JP:wght@400;600;700&family=Noto+Sans+TC:wght@300;400;500;600&family=Noto+Serif+TC:wght@500;600;700&family=Noto+Sans+SC:wght@300;400;500;600&family=Noto+Serif+SC:wght@500;600;700&display=swap" rel="stylesheet">
+  <!-- Lenis Smooth Scroll Library for Tohoku University style fluid inertia scrolling -->
+  <script src="https://unpkg.com/@studio-freight/lenis@1.0.42/dist/lenis.min.js"></script>
+  <style>
+    :root {
+      --bg: #faf9f5;
+      --text: #161616;
+      --muted: #62605b;
+      --accent: #3d1e6d; /* Tohoku University Purple */
+      --border: #dfdcd3;
+      --card-bg: #f3f1eb;
+      --ease-out-expo: cubic-bezier(0.16, 1, 0.3, 1);
+    }
+    * { box-sizing: border-box; margin: 0; padding: 0; }
+    html.lenis, html.lenis body { height: auto; }
+    .lenis.lenis-smooth { scroll-behavior: auto !important; }
+    .lenis.lenis-smooth [data-lenis-prevent] { overscroll-behavior: contain; }
+    .lenis.lenis-stopped { overflow: hidden; }
+
+    body {
+      background-color: var(--bg);
+      color: var(--text);
+      font-family: 'Inter', 'Noto Sans TC', 'Noto Sans JP', 'Noto Sans SC', -apple-system, BlinkMacSystemFont, sans-serif;
+      line-height: 1.88;
+      overflow-x: hidden;
+      -webkit-font-smoothing: antialiased;
+    }
+
+    /* Top Reading Progress Bar */
+    .scroll-progress {
+      position: fixed; top: 0; left: 0; height: 2.5px;
+      background: var(--accent); width: 0%; z-index: 2000;
+      transition: width 0.08s linear;
+    }
+
+    /* Sticky Glassmorphism Header */
+    header {
+      position: fixed; top: 0; left: 0; right: 0;
+      height: 70px;
+      display: flex; justify-content: space-between; align-items: center;
+      padding: 0 48px;
+      background: rgba(250, 249, 245, 0.86);
+      backdrop-filter: blur(14px);
+      -webkit-backdrop-filter: blur(14px);
+      border-bottom: 1px solid var(--border);
+      z-index: 1000;
+      transition: transform 0.6s var(--ease-out-expo), background 0.4s ease;
+    }
+    .brand {
+      display: flex; align-items: center; gap: 14px;
+      font-family: 'Cormorant Garamond', 'Noto Serif JP', 'Noto Serif TC', serif;
+      font-size: 1.22rem; font-weight: 600; letter-spacing: 0.05em;
+    }
+    .brand-univ {
+      font-family: 'Inter', sans-serif;
+      font-size: 0.76rem; font-weight: 600; letter-spacing: 0.16em;
+      text-transform: uppercase; color: var(--accent);
+    }
+    .brand-divider { color: var(--border); }
+    .lang-switch {
+      display: flex; align-items: center; gap: 6px;
+    }
+    .lang-switch button {
+      background: none; border: none; cursor: pointer;
+      font-size: 0.8rem; font-weight: 500; color: var(--muted);
+      padding: 5px 10px;
+      transition: all 0.35s var(--ease-out-expo);
+      font-family: 'Inter', 'Noto Sans TC', 'Noto Sans JP', sans-serif;
+      position: relative;
+    }
+    .lang-switch button:hover { color: var(--text); }
+    .lang-switch button.active {
+      color: var(--text); font-weight: 600;
+    }
+    .lang-switch button.active::after {
+      content: ""; position: absolute; left: 10px; right: 10px; bottom: 0;
+      height: 2px; background: var(--accent);
+    }
+
+    /* Split Hero Section with Sticky Left Portrait & Fluid Right Stream */
+    .hero {
+      display: grid; grid-template-columns: 5fr 6fr;
+      min-height: 105vh; padding-top: 70px;
+      border-bottom: 1px solid var(--border);
+      position: relative;
+    }
+    .hero-image {
+      position: sticky; top: 70px; height: calc(100vh - 70px);
+      overflow: hidden; background: #e8e5dd;
+    }
+    .hero-image img {
+      width: 100%; height: 108%; object-fit: cover;
+      object-position: center 18%;
+      will-change: transform;
+      transform: scale(1.04);
+      transition: transform 0.15s linear;
+    }
+    .hero-meta {
+      padding: 88px 76px 96px;
+      display: flex; flex-direction: column; justify-content: center;
+    }
+    .series-tag {
+      font-size: 0.75rem; text-transform: uppercase; letter-spacing: 0.2em;
+      color: var(--accent); font-weight: 600; margin-bottom: 16px;
+    }
+    .researcher-name {
+      font-family: 'Cormorant Garamond', 'Noto Serif JP', 'Noto Serif TC', 'Noto Serif SC', serif;
+      font-size: 3.3rem; font-weight: 600; line-height: 1.18; margin-bottom: 14px;
+      letter-spacing: -0.01em;
+    }
+    .researcher-name ruby { ruby-align: center; }
+    .researcher-name rt {
+      font-family: 'Noto Sans JP', sans-serif;
+      font-size: 0.78rem; font-weight: 400; color: var(--muted);
+      letter-spacing: 0.12em;
+    }
+    .affiliation {
+      font-size: 0.96rem; color: var(--muted); margin-bottom: 38px; line-height: 1.65;
+    }
+    .specialty-box {
+      border-top: 1px solid var(--border);
+      border-bottom: 1px solid var(--border);
+      padding: 26px 0; margin-bottom: 48px; font-size: 0.9rem;
+    }
+    .specialty-box dt {
+      font-weight: 600; color: var(--text); margin-bottom: 6px;
+      text-transform: uppercase; font-size: 0.75rem; letter-spacing: 0.1em;
+    }
+    .specialty-box dd {
+      color: var(--muted); margin-bottom: 20px;
+    }
+    .specialty-box dd:last-child { margin-bottom: 0; }
+    .specialty-box ul { list-style: none; padding-left: 0; }
+    .specialty-box li { margin-bottom: 5px; }
+    .specialty-box li::before { content: "— "; color: var(--accent); font-weight: 600; }
+
+    .catchphrase {
+      font-family: 'Cormorant Garamond', 'Noto Serif JP', 'Noto Serif TC', 'Noto Serif SC', serif;
+      font-size: 2.75rem; line-height: 1.24; font-weight: 600; margin-bottom: 26px;
+      color: #111;
+    }
+    .lead-paragraph {
+      font-size: 1.08rem; font-weight: 400; color: #2b2b2b; line-height: 1.85;
+    }
+
+    /* Scroll Indicator */
+    .scroll-cue {
+      margin-top: 48px; display: inline-flex; align-items: center; gap: 12px;
+      font-size: 0.74rem; text-transform: uppercase; letter-spacing: 0.18em;
+      color: var(--muted);
+    }
+    .scroll-cue-line {
+      width: 42px; height: 1px; background: var(--border); position: relative; overflow: hidden;
+    }
+    .scroll-cue-line::after {
+      content: ""; position: absolute; top: 0; left: -100%; width: 100%; height: 100%;
+      background: var(--accent); animation: scrollFlow 2.2s infinite var(--ease-out-expo);
+    }
+    @keyframes scrollFlow {
+      0% { left: -100%; }
+      50% { left: 0%; }
+      100% { left: 100%; }
+    }
+
+    /* Main Interview Article & Fluid Reveal Animations */
+    .article-container {
+      max-width: 790px; margin: 0 auto; padding: 110px 28px 120px;
+    }
+    .qa-block {
+      margin-bottom: 68px;
+    }
+    .question {
+      font-family: 'Cormorant Garamond', 'Noto Serif JP', 'Noto Serif TC', 'Noto Serif SC', serif;
+      font-size: 1.58rem; font-weight: 600; line-height: 1.45;
+      margin-bottom: 22px; color: #111;
+    }
+    .answer p {
+      margin-bottom: 20px; font-size: 1.02rem; color: #2b2b2b;
+    }
+    .answer p:last-child { margin-bottom: 0; }
+
+    /* Editorial Figures with Curtain Reveal & Parallax */
+    .editorial-figure {
+      margin: 84px -72px;
+      overflow: hidden;
+    }
+    .figure-frame {
+      overflow: hidden; border-radius: 2px;
+      background: #eae8e1;
+      clip-path: inset(8% 0 8% 0);
+      transition: clip-path 1.25s var(--ease-out-expo);
+    }
+    .editorial-figure.is-visible .figure-frame {
+      clip-path: inset(0% 0 0% 0);
+    }
+    .editorial-figure img {
+      width: 100%; display: block;
+      transform: scale(1.08);
+      transition: transform 1.6s var(--ease-out-expo);
+      will-change: transform;
+    }
+    .editorial-figure.is-visible img {
+      transform: scale(1.0);
+    }
+    .editorial-figure figcaption {
+      font-size: 0.82rem; color: var(--muted); margin-top: 14px;
+      line-height: 1.55; border-left: 2px solid var(--accent); padding-left: 12px;
+      opacity: 0; transform: translateY(12px);
+      transition: opacity 0.9s var(--ease-out-expo) 0.25s, transform 0.9s var(--ease-out-expo) 0.25s;
+    }
+    .editorial-figure.is-visible figcaption {
+      opacity: 1; transform: translateY(0);
+    }
+
+    /* Scroll Reveal Utility Classes (Tohoku Romance Fluid Style) */
+    .reveal-up {
+      opacity: 0;
+      transform: translate3d(0, 38px, 0);
+      transition: opacity 1.05s var(--ease-out-expo), transform 1.05s var(--ease-out-expo);
+      will-change: opacity, transform;
+    }
+    .reveal-up.is-visible {
+      opacity: 1;
+      transform: translate3d(0, 0, 0);
+    }
+    .delay-1 { transition-delay: 0.08s; }
+    .delay-2 { transition-delay: 0.16s; }
+    .delay-3 { transition-delay: 0.24s; }
+    .delay-4 { transition-delay: 0.32s; }
+
+    /* Formal Third-Person Bio Section */
+    .bio-section {
+      background: var(--card-bg);
+      border: 1px solid var(--border);
+      padding: 52px 56px;
+      margin-top: 96px;
+      border-radius: 2px;
+    }
+    .bio-section .bio-label {
+      font-size: 0.72rem; text-transform: uppercase; letter-spacing: 0.18em;
+      color: var(--accent); font-weight: 600; margin-bottom: 10px;
+    }
+    .bio-section h3 {
+      font-family: 'Cormorant Garamond', 'Noto Serif JP', 'Noto Serif TC', 'Noto Serif SC', serif;
+      font-size: 1.8rem; font-weight: 600; margin-bottom: 20px;
+    }
+    .bio-section p {
+      font-size: 0.94rem; color: #383734; margin-bottom: 16px; line-height: 1.85;
+    }
+    .bio-section p:last-child { margin-bottom: 0; }
+    .credit-line {
+      margin-top: 30px; padding-top: 18px; border-top: 1px solid var(--border);
+      font-size: 0.8rem; color: var(--muted); display: flex; justify-content: space-between;
+    }
+
+    footer {
+      border-top: 1px solid var(--border);
+      padding: 44px 48px;
+      text-align: center;
+      font-size: 0.82rem;
+      color: var(--muted);
+    }
+
+    @media (max-width: 960px) {
+      header { padding: 0 20px; }
+      .brand-univ { display: none; }
+      .brand-divider { display: none; }
+      .hero { grid-template-columns: 1fr; }
+      .hero-image { position: relative; top: 0; height: 70vh; }
+      .hero-meta { padding: 48px 24px; }
+      .researcher-name { font-size: 2.5rem; }
+      .catchphrase { font-size: 2.15rem; }
+      .editorial-figure { margin: 52px 0; }
+      .bio-section { padding: 34px 24px; }
+    }
+
+    @media (max-width: 520px) {
+      header { height: 64px; padding: 0 12px; gap: 8px; }
+      .brand {
+        max-width: 94px; flex: 0 1 94px;
+        font-size: 0.78rem; line-height: 1.08; letter-spacing: 0.025em;
+      }
+      .lang-switch { gap: 0; }
+      .lang-switch button { padding: 6px 5px; font-size: 0.7rem; }
+      .lang-switch button.active::after { left: 5px; right: 5px; }
+      .hero { padding-top: 64px; }
+      .hero-image { height: 58vh; min-height: 390px; }
+      .hero-meta { padding: 42px 20px 58px; }
+      .researcher-name { font-size: 2.15rem; }
+      .catchphrase { font-size: 1.9rem; }
+      .lead-paragraph { font-size: 1rem; }
+      .article-container { padding: 78px 20px 90px; }
+      .question { font-size: 1.38rem; }
+      .credit-line { gap: 12px; flex-direction: column; }
+      footer { padding: 36px 20px; }
+    }
+
+    @media (prefers-reduced-motion: reduce) {
+      html { scroll-behavior: auto; }
+      *, *::before, *::after {
+        animation-duration: 0.01ms !important;
+        animation-iteration-count: 1 !important;
+        scroll-behavior: auto !important;
+        transition-duration: 0.01ms !important;
+      }
+      .reveal-up, .editorial-figure figcaption { opacity: 1; transform: none; }
+      .figure-frame { clip-path: none; }
+      .editorial-figure img { transform: none; }
+    }
+
+    [data-lang] { display: none; }
+    [data-lang].active { display: block; }
+  </style>
+</head>
+<body>
+
+<div class="scroll-progress" id="scroll-progress"></div>
+
+<header id="site-header">
+  <div class="brand">
+    <span class="brand-univ">Tohoku University</span>
+    <span class="brand-divider">|</span>
+    <span>The Romance of Research</span>
+  </div>
+  <div class="header-controls">
+    <div class="lang-switch" role="navigation" aria-label="Language selector">
+      <button onclick="setLang('en')" id="btn-en">EN</button>
+      <button onclick="setLang('ja')" id="btn-ja">日本語</button>
+      <button onclick="setLang('tw')" id="btn-tw" class="active">繁中</button>
+      <button onclick="setLang('cn')" id="btn-cn">简中</button>
+    </div>
+  </div>
+</header>
+
+<!-- ==================== 1. 台灣繁體中文版 (繁中 TW) ==================== -->
+<main data-lang="tw" class="active">
+  <section class="hero">
+    <div class="hero-image">
+      <img src="portrait.jpg" alt="裴榮康 肖像" class="parallax-hero">
+    </div>
+    <div class="hero-meta">
+      <div class="series-tag reveal-up">研究的浪漫 — The Romance of Research</div>
+      <h1 class="researcher-name reveal-up delay-1">裴 榮康 <span style="font-size:1.35rem;font-weight:400;color:var(--muted);">（Rongkang Pei）</span></h1>
+      <div class="affiliation reveal-up delay-2">
+        東北大學（Tohoku University）大學院文學研究科<br>
+        計算人文與社會學 博士生
+      </div>
+      <dl class="specialty-box reveal-up delay-3">
+        <dt>專業領域</dt>
+        <dd>計算社會科學・數位人文（Computational Humanities &amp; Sociology）</dd>
+        <dt>研究與教學領域</dt>
+        <dd>
+          <ul>
+            <li>學術晉升路徑、科研制度機制與性別不平等</li>
+            <li>生成式人工智慧（Generative AI）、大型語言模型（LLM）與大規模社會資料處理</li>
+            <li>旅遊大數據、社群媒體資料擷取與時空人類移動行為</li>
+            <li>GLAM 機構（美術館、圖書館、檔案館、博物館）知識呈現與資料視覺化</li>
+          </ul>
+        </dd>
+      </dl>
+      <h2 class="catchphrase reveal-up delay-4">以資料為語言，訴說真實的人與制度</h2>
+      <p class="lead-paragraph reveal-up delay-4">
+        在每一項制度設計、每一次文化流變與每一段學術生涯的背後，都交織著無數真實個體的命運與抉擇。將計算方法深度融入社會科學與人文關懷，讓隱形的結構性壁壘得以被看見——資料不僅是工具，它是一種理解社會、喚起改變的語言。
+      </p>
+      <div class="scroll-cue reveal-up delay-4">
+        <span class="scroll-cue-line"></span>
+        <span>Scroll to Explore</span>
+      </div>
+    </div>
+  </section>
+
+  <article class="article-container">
+    <div class="qa-block reveal-up">
+      <h3 class="question">是什麼契機激發了你將計算方法與社會學、人文學深度融合？</h3>
+      <div class="answer">
+        <p>這源於我一直渴望在「看見整座森林」的同時，依然不忽略「每一棵樹的脈絡」。傳統的質性社會學能對個體經驗提供極具同理心的深刻洞察，但往往難以跨越數十年的時間尺度或全國範圍，去捕捉宏觀的制度結構；相對地，純粹的資料科學雖然擅長處理龐大規模的資料，卻有時容易將鮮活的個人簡化為冰冷的統計雜訊。</p>
+        <p>我很早就意識到，如果能將機器學習、社會網絡分析等計算方法深度紮根於社會科學的問題意識之中，我們不僅不會抹去人的溫度，反而能照亮那些被制度遮蔽的真實人生。資料從來不是冰冷的——當它與社會學的想像力結合時，資料就是訴說真實的人與制度最誠實的媒介。</p>
+      </div>
+    </div>
+
+    <div class="qa-block reveal-up">
+      <h3 class="question">你的核心研究之一聚焦於日本學術晉升路徑與性別不平等。為什麼這項議題對社會如此關鍵？</h3>
+      <div class="answer">
+        <p>大學與研究機構是推進人類知識創新與社會進步的引擎，然而學者們如何被聘任、如何取得研究經費、又如何獲得升等，其內部運作機制在很大程度上仍是一個「黑盒子」。當學緣壁壘（學術近親繁殖）、機構聲望階層或隱性的性別偏見阻礙了優秀研究者的發展時，整個社會都會因此錯失本該誕生的突破性思想。</p>
+        <p>透過建構「日本學術晉升機制計算分析平台」，我的研究長期追蹤了數以萬計學者的學術生涯序列，量化剖析研究補助、機構間流動與合著網絡如何與性別因素交織。將這些看不見的結構性瓶頸轉化為可量化、可視覺化的透明圖像，正是推動建立更公平、更具包容性的學術生態系的第一步。</p>
+      </div>
+    </div>
+
+    <div class="qa-block reveal-up">
+      <h3 class="question">除了高等教育與學術勞動市場，你也廣泛投入旅遊大數據與 GLAM 機構的知識呈現。生成式 AI 與大型語言模型（LLM）是如何將這些多元領域串聯起來的？</h3>
+      <div class="answer">
+        <p>從本質上來看，無論是一位在大學體制中探索職涯路徑的學者、一位造訪文化資產場域的旅人，還是一座策劃歷史檔案展覽的博物館，核心問題其實是一致的：人類如何與知識、空間以及社會制度產生互動。</p>
+        <p>過去，要從數百萬則社群媒體貼文、歷史館藏檔案或非結構化的制度文本中萃取出結構化意義，往往耗時費力。如今，藉由 Python 機器學習、自動化資料處理管線（Data Pipelines）與大型語言模型（LLM），我們得以在非結構化的人類表達與嚴謹的計量分析之間架起橋樑。在與文化旅遊企業及公部門的合作實踐中，我們運用生成式 AI 繪製文化知識如何被大眾感知與再現的知識圖譜，讓 AI 成為連結文化資產與公眾體驗的轉譯者。</p>
+      </div>
+    </div>
+
+    <figure class="editorial-figure">
+      <div class="figure-frame">
+        <img src="scene.jpg" alt="裴榮康於東北大學研究室">
+      </div>
+      <figcaption>Untitled (A Researcher in Sendai #1024), 2026. 於東北大學研究室中對學術職涯流動軌跡與制度網絡進行計算建模與資料視覺化。</figcaption>
+    </figure>
+
+    <div class="qa-block reveal-up">
+      <h3 class="question">這也是你主持政府部會級計畫與產學合作專案、與企業及公共機構共創資料平台的初衷嗎？</h3>
+      <div class="answer">
+        <p>完全正確。我始終深信，社會科學的研究成果不應該只被鎖在學術期刊的字裡行間。無論是建構日本學術晉升機制計算分析平台，或是與文創旅遊企業、公部門共創「智慧旅遊資料平台」與「學術生涯視覺化系統」，我最核心的目標都是「可近用性（Accessibility）」。</p>
+        <p>一個再精妙的迴歸模型或擁有數百萬節點的複雜網絡圖，如果政策制定者、博物館策展人或一般市民無法直觀地理解並與之互動，就很難真正產生社會影響力。因此，「資料視覺化」在我的研究工作流中扮演著關鍵角色。透過將龐雜的巨量資料轉化為直覺且具美感的互動介面，我們賦權給實務工作者與大眾自己去探索洞見，真正推動「AI × 文化 × 社會資料」的跨域融合。</p>
+      </div>
+    </div>
+
+    <div class="qa-block reveal-up">
+      <h3 class="question">在 AI 與人文社會科學的交界處進行開拓，你目前面臨最大的挑戰是什麼？</h3>
+      <div class="answer">
+        <p>主要有三大挑戰：資料倫理與雜訊、演算法偏見，以及跨領域的語言轉譯。首先，不同於自然科學在實驗室中取得的數據，社會資料天生帶有缺失與雜訊，且高度涉及個人隱私與研究倫理。在進行大規模社群媒體資料擷取或職涯追蹤時，資料清理與結構化必須極為審慎，才不會扭曲數字背後真實的生命經驗。</p>
+        <p>其次，LLM 與機器學習模型很容易在無意間複製甚至放大既有的社會偏見。我們不能把 AI 當作全知的神諭，而必須建立具備可解釋性與透明度的工作流，讓社會學理論去引導演算法，而非被演算法牽著走。最後，在資訊工程學者與人文社會學者之間建立「共同語言」需要持續不斷的對話，但也正是這種跨領域碰撞的火花，最能激發出令人驚豔的原創研究。</p>
+      </div>
+    </div>
+
+    <div class="qa-block reveal-up">
+      <h3 class="question">你曾主持多項研究計畫與產學合作，在日本東北大學做研究的經歷帶給你什麼樣的獨特視角？</h3>
+      <div class="answer">
+        <p>在東北大學從事研究提供了一個極佳的觀測視野。日本擁有全世界保存最縝密的制度檔案與深厚的文化資產，同時也站在高齡少子化與組織轉型等結構性挑戰的最前線。身處這樣的學術環境中，讓我能結合第一線的田野觀察與跨文化的比較社會學視野。更重要的是，東北大學自創校以來秉持的「實學尊重（実学尊重）」精神，與我自己的信念高度共鳴——計算社會科學的終極目標，是為了服務真實世界的制度改革與文化活力。</p>
+      </div>
+    </div>
+
+    <div class="qa-block reveal-up">
+      <h3 class="question">對於想投入計算社會科學或數位人文領域的年輕研究者，你有什麼建議？</h3>
+      <div class="answer">
+        <p>不要被技術工具嚇倒，但同時也千萬不要成為「工具的奴隸」。在這個時代，我們很容易迷失在追逐最新的 AI 模型或撰寫複雜的 Python 腳本中，卻忘了研究的初衷。請永遠從一個真正觸動你的人文或社會提問出發——問問自己：「這項制度影響了誰？有哪些人的聲音被忽略了？」只要你心中有一個迫切想解答的真實問題，學習程式設計、機器學習與資料視覺化就會變成一場令人著迷的解謎過程。</p>
+      </div>
+    </div>
+
+    <div class="qa-block reveal-up">
+      <h3 class="question">最後，在離開終端機與研究室的日常裡，你平常有哪些興趣？</h3>
+      <div class="answer">
+        <p>離開螢幕與程式碼之後，我喜歡放慢步調，重新連結真實的感官世界。沖煮精品咖啡是我每天不可或缺的儀式——某種程度上，調整義式濃縮或手沖咖啡的萃取參數，跟資料科學實驗非常相似，都必須在研磨度、水溫、流速等無數變數的控制與直覺之間尋找完美平衡。此外，我也喜歡帶著相機走訪不同城市的街廓巷弄、參觀美術館與歷史建築，在旅途中觀察人們如何在日常空間裡自然地生活與移動。</p>
+      </div>
+    </div>
+
+    <figure class="editorial-figure">
+      <div class="figure-frame">
+        <img src="algorithm.jpg" alt="演算法與多維網絡拓撲視覺化">
+      </div>
+      <figcaption>攝影：支撐裴榮康計算社會科學研究的底層多層網絡拓撲模型與 LLM 大規模資料處理管線（Data Pipelines）。</figcaption>
+    </figure>
+
+    <section class="bio-section reveal-up">
+      <div class="bio-label">Researcher Profile</div>
+      <h3>裴 榮康（Rongkang Pei）</h3>
+      <p>東北大學（Tohoku University）大學院文學研究科計算人文與社會學博士生。致力於將計算方法深度融入社會科學，運用資料訴說真實的人與制度。其研究與教學橫跨旅遊大數據、生成式人工智慧、學術晉升路徑與性別不平等，以及 GLAM 機構（美術館、圖書館、檔案館、博物館）知識呈現等跨域課題；擅長運用 Python、機器學習、資料視覺化、社群媒體資料擷取、大型語言模型（LLM）與大規模資料處理技術，剖析宏觀制度結構與微觀人類行為之間的動態機制。</p>
+      <p>在學術研究與社會實踐方面，裴榮康主持多項政府部會級研究計畫與產學合作專案，主導建構「日本學術晉升機制計算分析平台」；同時積極攜手文化旅遊企業及公共機構，共創智慧旅遊資料平台與學術生涯視覺化系統，深度推動「AI × 文化 × 社會資料」的跨域整合。他始終秉持這份信念：「資料不僅是工具，它是一種理解社會、喚起改變的語言。」</p>
+      <div class="credit-line">
+        <span>研究的浪漫 — The Romance of Research</span>
+        <span>東北大學 / Tohoku University</span>
+      </div>
+    </section>
+  </article>
+</main>
+
+<!-- ==================== 2. NATIVE JAPANESE VERSION (JA) ==================== -->
+<main data-lang="ja">
+  <section class="hero">
+    <div class="hero-image">
+      <img src="portrait.jpg" alt="裴 榮康 ポートレート" class="parallax-hero">
+    </div>
+    <div class="hero-meta">
+      <div class="series-tag reveal-up">研究のロマンス — The Romance of Research</div>
+      <h1 class="researcher-name reveal-up delay-1">
+        <ruby>裴 榮康<rt>ハイ エイコウ</rt></ruby>
+        <span style="font-size:1.25rem;font-weight:400;color:var(--muted);display:block;margin-top:6px;">裴 榮康（ハイ エイコウ） / Rongkang Pei</span>
+      </h1>
+      <div class="affiliation reveal-up delay-2">
+        東北大学 大学院文学研究科<br>
+        計算人文社会学 博士課程後期（リサーチャー）
+      </div>
+      <dl class="specialty-box reveal-up delay-3">
+        <dt>専門分野</dt>
+        <dd>計算社会科学・デジタルヒューマニティーズ</dd>
+        <dt>主な研究テーマ</dt>
+        <dd>
+          <ul>
+            <li>学術キャリアパス・昇進メカニズムとジェンダー不平等の実証分析</li>
+            <li>大規模言語モデル（LLM）および機械学習を用いた社会・人文知の解明</li>
+            <li>観光ビッグデータ解析と人間行動の時空間モビリティ</li>
+            <li>GLAM機関（美術館・図書館・文書館・博物館）における知識表現と構造化</li>
+          </ul>
+        </dd>
+      </dl>
+      <h2 class="catchphrase reveal-up delay-4">データという言語で、人と制度の「リアル」を紡ぎ出す</h2>
+      <p class="lead-paragraph reveal-up delay-4">
+        社会の制度、文化の変容、そして一人ひとりの人生の転機——その背後には、目に見えない構造と無数の人々の物語が交錯しています。計算科学の手法を社会科学・人文学の深みへと融合させることで、見過ごされてきた不平等を可視化し、データを「社会を動かす力」へと昇華させる。
+      </p>
+      <div class="scroll-cue reveal-up delay-4">
+        <span class="scroll-cue-line"></span>
+        <span>Scroll to Explore</span>
+      </div>
+    </div>
+  </section>
+
+  <article class="article-container">
+    <div class="qa-block reveal-up">
+      <h3 class="question">計算科学の手法と、社会学や人文学を融合させようと思ったきっかけは何ですか？</h3>
+      <div class="answer">
+        <p>「木を見て森を見ず」でもなく、「森を見て木を見ず」でもない、人間社会の全体像と個人のリアリティを同時に捉えたいという強い思いが原点にあります。従来の質的な社会調査は、個人の経験や文脈に深く寄り添うことができる一方で、数十年単位の歴史的変化や国全体のマクロな構造を把握することには限界がありました。逆に、純粋なデータサイエンスは膨大なデータを処理できますが、時に生身の人間を単なる「統計上の数値」として切り捨ててしまう危うさがあります。</p>
+        <p>もし、機械学習やネットワーク分析といった計算手法を社会科学の文脈に深く根付かせることができれば、人間の温もりを消すどころか、むしろ制度の陰に隠れた人々の営みを鮮やかに照らし出せるのではないかと考えたのです。データは決して冷たいものではありません。社会学的な想像力をもって向き合えば、データは現実の人々と制度のあり方を最も誠実に語る「言葉」になります。</p>
+      </div>
+    </div>
+
+    <div class="qa-block reveal-up">
+      <h3 class="question">研究の柱の一つとして、日本のアカデミアにおけるキャリアパスやジェンダー不平等に取り組まれています。なぜこのテーマが社会にとって重要なのでしょうか？</h3>
+      <div class="answer">
+        <p>大学や研究機関は知の創造と社会発展の原動力ですが、研究者たちがどのように採用され、研究費を獲得し、昇進していくのかという内部のメカニズムは、実は多くの部分でブラックボックス化しています。もし、組織間の威信階層や学術的な同質性（アカデミック・インブリーディング）、あるいは無意識のジェンダーバイアスといった構造的な障壁によって優秀な研究者のキャリアが阻まれているとすれば、それは社会全体にとって計り知れない損失です。</p>
+        <p>私は現在、日本の学術昇進メカニズムを計算科学的に解析するプラットフォームを構築し、数万人規模の研究者の長期的なキャリア軌跡を追跡しています。科研費などの資金配分、組織間の流動性、共著ネットワークがジェンダーとどう交差しているのかを定量化し、視覚的に明らかにする。目に見えない構造的課題を誰もが直視できる形で提示することが、より公正で多様性に富んだ学術エコシステムを築くための第一歩だと考えています。</p>
+      </div>
+    </div>
+
+    <div class="qa-block reveal-up">
+      <h3 class="question">アカデミアの分析にとどまらず、観光ビッグデータやGLAM（美術館・図書館・文書館・博物館）機関の知識表現など、幅広い領域を横断されていますね。生成AIやLLM（大規模言語モデル）は、これらの研究をどのように結びつけているのでしょうか？</h3>
+      <div class="answer">
+        <p>一見すると異なる分野に見えますが、根底にある問いは共通しています。それは「人間がいかにして知識や空間、そして社会制度と関わり合っているか」という問いです。</p>
+        <p>これまで、SNS上の膨大な投稿や歴史的アーカイブ、組織内の非構造化テキストから体系的な意味を抽出するには、膨大な時間と労力が必要でした。しかし、Pythonを用いた機械学習や大規模言語モデル（LLM）の登場によって、人々が紡ぎ出す自然な言葉や文化的実践を、厳密な計量分析へと橋渡しすることが可能になりました。私たちが進めているスマートツーリズムやGLAM機関との連携では、生成AIや大規模データ処理を活用して、文化資源や知識がどのように大衆に受容され、表現されているのかをマッピングしています。AIは、文化の繊細な文脈を損なうことなく、社会と知識のインターフェースを編み直す強力な翻訳機なのです。</p>
+      </div>
+    </div>
+
+    <figure class="editorial-figure">
+      <div class="figure-frame">
+        <img src="scene.jpg" alt="研究室での裴 榮康">
+      </div>
+      <figcaption>Untitled (A Researcher in Sendai #1024), 2026. 学術キャリアの流動性と組織ネットワークの軌跡を可視化する。</figcaption>
+    </figure>
+
+    <div class="qa-block reveal-up">
+      <h3 class="question">そうした問題意識が、独自の分析プラットフォームの構築や、企業・公共機関との共創プロジェクトにつながっているのですね。</h3>
+      <div class="answer">
+        <p>その通りです。社会科学の知見は、学術論文の中だけに閉じ込めておくべきではないと常に考えています。日本の学術キャリア可視化システムを開発した際も、文化観光企業や自治体などの公共機関とスマートツーリズムのデータ基盤を共創した際も、私が最も重視したのは「現場の人々が直感的に触れられること」でした。</p>
+        <p>どれほど精緻な機械学習モデルや複雑なネットワーク図を作っても、政策立案者や学芸員、あるいは一般の市民がその意味を読み解けなければ、社会は何も変わりません。だからこそ、私の研究では「データビジュアライゼーション（可視化）」が極めて重要な役割を果たします。複雑で巨大なデータを、直感的で美しいインターフェースへと変換することで、AI・文化・社会データが交差する対話の場を生み出したいのです。</p>
+      </div>
+    </div>
+
+    <div class="qa-block reveal-up">
+      <h3 class="question">AIと人文・社会科学の境界領域を切り拓く中で、現在直面している最大の課題は何ですか？</h3>
+      <div class="answer">
+        <p>大きく分けて三つの課題があります。一つ目は「データのノイズと倫理」、二つ目は「アルゴリズムの透明性」、そして三つ目は「異分野間の対話」です。自然科学の実験データとは異なり、社会データは常に欠損や偏りを含んでおり、プライバシーや研究倫理への深い配慮が求められます。数字の背後にある一人ひとりの人生を歪めないよう、データ収集と前処理には細心の注意を払っています。</p>
+        <p>また、LLMをはじめとするAIモデルは、学習データに含まれる社会の偏見を再生産してしまうリスクを孕んでいます。AIを「万能の答え」として盲信するのではなく、社会学的な理論枠組みによってAIの推論プロセスを検証し、解釈可能性を担保することが不可欠です。そして何より、情報科学の技術者と人文・社会科学の研究者とでは「共通言語」が異なります。しかし、この異なる視座がぶつかり合う摩擦こそが、新しい知を生み出す最大のエネルギーになると信じています。</p>
+      </div>
+    </div>
+
+    <div class="qa-block reveal-up">
+      <h3 class="question">これまで公的資金プロジェクトや産学連携を主導されてきましたが、日本の東北大学という環境で研究を行うことにはどのような意義がありますか？</h3>
+      <div class="answer">
+        <p>東北大学で研究できることは、私にとって非常に大きな財産です。日本には世界的に見ても極めて精緻に蓄積された制度データや豊かな文化遺産がある一方で、少子高齢化や組織の硬直化といった先進国ならではの構造的課題がいち早く顕在化しています。この環境に身を置き、当事者としての観察眼と比較社会学的な視座を掛け合わせることで、より深い洞察が得られます。また、東北大学が掲げる「実学尊重」の精神は、「データで社会を理解し、実践的な変革を呼び起こす」という私自身の信念と深く共鳴しています。</p>
+      </div>
+    </div>
+
+    <div class="qa-block reveal-up">
+      <h3 class="question">これから計算社会科学やデジタル・ヒューマニティーズを志す若手研究者へ、アドバイスをお願いします。</h3>
+      <div class="answer">
+        <p>技術的なツールに気後れする必要はありませんし、同時に「ツールの奴隷」にもならないでほしいと思います。最新のAIモデルを追いかけたり、複雑なPythonコードを書くこと自体が目的化してしまうケースは少なくありません。しかし、最も大切なのは「あなた自身が本当に解き明かしたい人間や社会の問いは何か」という熱量です。「この制度のどこに歪みがあるのか」「誰の声が漏れているのか」という切実な問いさえあれば、プログラミングや機械学習は、その答えに辿り着くための最高にエキサイティングな武器になります。</p>
+      </div>
+    </div>
+
+    <div class="qa-block reveal-up">
+      <h3 class="question">最後に、研究室やパソコンから離れた普段の生活では、どのようなことがお好きですか？</h3>
+      <div class="answer">
+        <p>画面の中のデジタルな世界から離れ、五感を使う時間を大切にしています。特にスペシャルティコーヒーを淹れることは毎日の欠かせない習慣です。豆の挽き目や湯温、抽出時間といった無数の変数をコントロールし、最高の一杯を導き出すプロセスは、どこかデータサイエンスの実験にも似ていて心が落ち着きます。あとは、カメラを持って知らない街の路地を歩いたり、美術館や建築を巡ったりしながら、人々が空間の中でどのように息づいているのかを眺めるのが好きですね。</p>
+      </div>
+    </div>
+
+    <figure class="editorial-figure">
+      <div class="figure-frame">
+        <img src="algorithm.jpg" alt="アルゴリズムとネットワーク可視化">
+      </div>
+      <figcaption>写真：裴 榮康（ハイ エイコウ）の研究を支える、多層ネットワーク・トポロジーとLLMデータパイプラインの可視化画面。制度構造と人の移動を精緻に描き出す。</figcaption>
+    </figure>
+
+    <section class="bio-section reveal-up">
+      <div class="bio-label">Researcher Profile</div>
+      <h3>裴 榮康（ハイ エイコウ / Rongkang Pei）</h3>
+      <p>東北大学にて計算人文社会学（Computational Humanities and Sociology）を専攻する博士課程研究者。社会学・人文学の理論的視座と最先端のデータサイエンスを融合させ、人間行動および社会制度のダイナミクスを解明する学際的研究に従事している。Python、機械学習、大規模言語モデル（LLM）、ソーシャルメディア・マイニングおよび高度なデータ可視化技術を駆使し、高等教育における学術キャリアパス・昇進メカニズムとジェンダー不平等、観光ビッグデータ、ならびにGLAM機関（美術館・図書館・文書館・博物館）における知識表現の構造化を主要な研究領域とする。</p>
+      <p>これまで省部級（公的競争的資金）プロジェクトや多数の産学官連携プロジェクトにおいて研究代表者（PI）を務め、日本の学術昇進メカニズムを計算科学的に解明する分析プラットフォームおよび学術キャリア可視化システムを独自に構築。さらに、文化観光企業や公共機関との共創を通じてスマートツーリズム・データ基盤の開発を主導するなど、「AI×文化×社会データ」の社会実装を牽引している。「データは単なるツールではなく、社会を理解し、変革を呼び起こすための言語である」という信念のもと、デジタル技術を通じた公正で豊かな社会の実現を目指している。</p>
+      <div class="credit-line">
+        <span>研究のロマンス — The Romance of Research</span>
+        <span>東北大学 / Tohoku University</span>
+      </div>
+    </section>
+  </article>
+</main>
+
+<!-- ==================== 3. AMERICAN ENGLISH VERSION (EN) ==================== -->
+<main data-lang="en">
+  <section class="hero">
+    <div class="hero-image">
+      <img src="portrait.jpg" alt="Rongkang Pei Portrait" class="parallax-hero">
+    </div>
+    <div class="hero-meta">
+      <div class="series-tag reveal-up">The Romance of Research</div>
+      <h1 class="researcher-name reveal-up delay-1">Rongkang Pei</h1>
+      <div class="affiliation reveal-up delay-2">
+        Doctoral Researcher in Computational Humanities and Sociology,<br>
+        Graduate School of Arts and Letters, Tohoku University
+      </div>
+      <dl class="specialty-box reveal-up delay-3">
+        <dt>Field of Specialty</dt>
+        <dd>Computational Social Science &amp; Digital Humanities</dd>
+        <dt>Specific Topics</dt>
+        <dd>
+          <ul>
+            <li>Academic career trajectories, promotion mechanisms, and gender inequality</li>
+            <li>Large Language Models (LLMs) and machine learning for social inquiry</li>
+            <li>Tourism big data and spatial-temporal human mobility</li>
+            <li>Knowledge representation in GLAM (Galleries, Libraries, Archives, and Museums) institutions</li>
+          </ul>
+        </dd>
+      </dl>
+      <h2 class="catchphrase reveal-up delay-4">Decoding Society, One Dataset at a Time</h2>
+      <p class="lead-paragraph reveal-up delay-4">
+        Behind every institutional policy, cultural shift, and career milestone lies a complex web of human stories. By weaving computational methods into the fabric of sociology and the humanities, we can make invisible structural inequalities visible—and turn raw data into a catalyst for social change.
+      </p>
+      <div class="scroll-cue reveal-up delay-4">
+        <span class="scroll-cue-line"></span>
+        <span>Scroll to Explore</span>
+      </div>
+    </div>
+  </section>
+
+  <article class="article-container">
+    <div class="qa-block reveal-up">
+      <h3 class="question">What sparked your interest in combining computational methods with sociology and the humanities?</h3>
+      <div class="answer">
+        <p>The answer lies in a fundamental desire to see the whole picture without losing sight of the individual. Traditional qualitative sociology offers deep, empathetic insights into human behavior, but it often struggles to capture macro-level structural patterns across decades or entire nations. Conversely, pure data science excels at processing massive scale, yet sometimes treats human beings as mere statistical noise.</p>
+        <p>I realized early on that if we embed computational methodologies—like machine learning and network analysis—deeply into the social sciences, we don't erase the human element; we illuminate it. Data is not cold. When framed with sociological imagination, data becomes the most honest medium for telling real stories about real people and the institutions that shape their lives.</p>
+      </div>
+    </div>
+
+    <div class="qa-block reveal-up">
+      <h3 class="question">A major pillar of your research examines academic career trajectories and gender disparities in Japan. Why is this issue so critical for society?</h3>
+      <div class="answer">
+        <p>Universities and research institutes are the engines of human progress, yet the internal mechanisms governing how scholars are hired, funded, and promoted often remain a black box. When structural barriers—such as institutional prestige hierarchies, academic inbreeding, or implicit gender biases—hinder talented researchers, society as a whole loses out on groundbreaking ideas.</p>
+        <p>By constructing a large-scale computational analysis platform tailored to Japan's academic promotion system, my work traces the long-term career sequences of tens of thousands of scholars. We look at how research grants, institutional mobility, and publication networks intersect with gender. Making these invisible bottlenecks quantifiable and visually transparent is the first step toward building a fairer, more inclusive, and more vibrant academic ecosystem.</p>
+      </div>
+    </div>
+
+    <div class="qa-block reveal-up">
+      <h3 class="question">Beyond academia, you also work extensively with tourism big data and GLAM (Galleries, Libraries, Archives, and Museums) institutions. How do Large Language Models (LLMs) and AI tie these diverse areas together?</h3>
+      <div class="answer">
+        <p>At their core, all of these domains—whether it is a scholar navigating a university system, a traveler exploring a cultural heritage site, or a museum curating historical archives—are about how humans interact with knowledge, space, and institutions.</p>
+        <p>Historically, extracting structured meaning from millions of social media posts, archival records, or unstructured institutional documents was prohibitively slow. Today, Large Language Models (LLMs) and automated data pipelines allow us to bridge unstructured human expression and rigorous quantitative analysis. In our GLAM and smart tourism projects, we use Python-based machine learning and generative AI to map how cultural knowledge is represented and experienced by the public. AI acts as a translator, helping cultural institutions understand public engagement in real time while preserving the nuance of cultural heritage.</p>
+      </div>
+    </div>
+
+    <figure class="editorial-figure">
+      <div class="figure-frame">
+        <img src="scene.jpg" alt="Rongkang Pei in Research Lab at Tohoku University">
+      </div>
+      <figcaption>Untitled (A Researcher in Sendai #1024), 2026. Visualizing trajectories of academic mobility and institutional networks at Tohoku University.</figcaption>
+    </figure>
+
+    <div class="qa-block reveal-up">
+      <h3 class="question">Is that vision what led you to build your computational platforms and co-create systems with industry and public partners?</h3>
+      <div class="answer">
+        <p>Exactly. I have always believed that social science research should not stay locked inside academic journals. When I started building the computational platform for analyzing Japanese academic careers, or co-developing smart tourism data platforms with cultural enterprises and public agencies, my goal was accessibility.</p>
+        <p>A complex regression model or a multi-million-node graph means very little to a policymaker or a museum director unless they can see and interact with it. That is why data visualization is central to my workflow. By transforming massive, messy datasets into intuitive visual interfaces, we empower administrators, industry partners, and citizens to discover insights on their own. It turns static research into a living dialogue between AI, culture, and society.</p>
+      </div>
+    </div>
+
+    <div class="qa-block reveal-up">
+      <h3 class="question">What are the biggest challenges you face when working at the intersection of AI and the social sciences?</h3>
+      <div class="answer">
+        <p>Three main challenges stand out: data ethics and noise, algorithmic bias, and disciplinary translation. First, unlike laboratory data in the natural sciences, social data is inherently messy, incomplete, and deeply intertwined with privacy and ethical considerations. Cleaning and structuring large-scale social media or career tracking data requires immense care so that we do not distort the lived realities behind the numbers.</p>
+        <p>Second, LLMs and machine learning models can inadvertently replicate or amplify existing societal biases. We cannot treat AI as an infallible oracle; we must build transparent, interpretable workflows where sociological theory guides the algorithm, not the other way around.</p>
+        <p>Finally, bridging the divide between computer scientists and humanities scholars takes constant effort. We speak different methodological languages. Yet, I view this friction as creative energy—when you successfully align technical precision with humanistic empathy, the resulting insights are extraordinary.</p>
+      </div>
+    </div>
+
+    <div class="qa-block reveal-up">
+      <h3 class="question">Having led provincial-level grants and industry-academia collaborations across different cultural contexts, how has conducting research at Tohoku University in Japan shaped your perspective?</h3>
+      <div class="answer">
+        <p>Researching at Tohoku University provides a remarkable vantage point. Japan possesses some of the most meticulously maintained institutional archives and richest cultural landscapes in the world, alongside unique demographic and structural challenges. Being immersed in this environment allows me to observe institutional dynamics up close while applying a comparative, cross-cultural lens. Moreover, Tohoku University's deep commitment to <em>"Jitsugaku"</em> (practical learning that benefits society) resonates strongly with my own philosophy: that computational research should ultimately serve real-world institutional reform and cultural vitality.</p>
+      </div>
+    </div>
+
+    <div class="qa-block reveal-up">
+      <h3 class="question">Do you have any advice for young researchers looking to enter computational social science or digital humanities?</h3>
+      <div class="answer">
+        <p>Don't let the technical tools intimidate you, and equally, never let the tools become your master. It is easy to get caught up in chasing the newest AI model or writing complex Python scripts just for the sake of technical sophistication. Always start with a compelling human question. Ask yourself: <em>Who does this affect? What institutional truth is hidden here?</em> Once you have a question you genuinely care about, learning the programming, machine learning, and visualization skills becomes an exciting puzzle rather than a chore.</p>
+      </div>
+    </div>
+
+    <div class="qa-block reveal-up">
+      <h3 class="question">Lastly, outside of coding and research, how do you spend your time?</h3>
+      <div class="answer">
+        <p>When I step away from the terminal, I enjoy slowing down and engaging with the sensory world. Brewing specialty coffee is a daily ritual for me—much like data science, dialing in the perfect espresso or pour-over is a delicate balance of variables, precision, and intuition. I also love traveling through local neighborhoods, visiting museums and architectural spaces, and observing how people naturally inhabit and move through cities.</p>
+      </div>
+    </div>
+
+    <figure class="editorial-figure">
+      <div class="figure-frame">
+        <img src="algorithm.jpg" alt="Computational Social Science Network Visualization">
+      </div>
+      <figcaption>Photograph: Multi-layered network topologies and LLM-driven data pipelines mapping institutional structures and human mobility in Rongkang Pei’s research.</figcaption>
+    </figure>
+
+    <section class="bio-section reveal-up">
+      <div class="bio-label">Researcher Profile</div>
+      <h3>Rongkang Pei</h3>
+      <p>Rongkang Pei is a doctoral researcher in Computational Humanities and Sociology at Tohoku University, where he investigates the intersection of computational social science, generative artificial intelligence, and institutional dynamics. Bridging sociological inquiry with advanced data science, Pei's research utilizes Python, machine learning, Large Language Models (LLMs), and large-scale data visualization to uncover the structural mechanisms governing human behavior and institutional inequality. His core academic work focuses on modeling academic career trajectories, research funding ecosystems, and gender disparities within higher education, alongside empirical studies in tourism big data and knowledge representation across GLAM (Galleries, Libraries, Archives, and Museums) institutions.</p>
+      <p>Committed to translating computational insights into real-world impact, Pei has served as Principal Investigator for provincial/ministerial-level research grants and led numerous industry-academia collaborative projects. He spearheaded the development of a computational analysis and visualization platform for Japanese academic promotion mechanisms, providing data-driven transparency into scholarly mobility. Beyond academia, he actively collaborates with cultural tourism enterprises and public sector agencies to co-create smart tourism data platforms and interactive knowledge systems, advancing the integration of AI, cultural heritage, and social data under the conviction that data is a vital language for understanding society and inspiring meaningful change.</p>
+      <div class="credit-line">
+        <span>The Romance of Research — Special Feature</span>
+        <span>Tohoku University</span>
+      </div>
+    </section>
+  </article>
+</main>
+
+<!-- ==================== 4. 簡體中文版 (简中 CN) ==================== -->
+<main data-lang="cn">
+  <section class="hero">
+    <div class="hero-image">
+      <img src="portrait.jpg" alt="裴荣康 肖像" class="parallax-hero">
+    </div>
+    <div class="hero-meta">
+      <div class="series-tag reveal-up">研究的浪漫 — The Romance of Research</div>
+      <h1 class="researcher-name reveal-up delay-1">裴荣康 <span style="font-size:1.35rem;font-weight:400;color:var(--muted);">（Rongkang Pei）</span></h1>
+      <div class="affiliation reveal-up delay-2">
+        东北大学（Tohoku University）文学研究科<br>
+        计算人文与社会学 博士生
+      </div>
+      <dl class="specialty-box reveal-up delay-3">
+        <dt>专业领域</dt>
+        <dd>计算社会科学 · 数字人文（Computational Humanities &amp; Sociology）</dd>
+        <dt>研究与教学领域</dt>
+        <dd>
+          <ul>
+            <li>学术晋升路径、科研制度机制与性别不平等</li>
+            <li>生成式人工智能（LLM）、机器学习与大规模社会数据处理</li>
+            <li>旅游大数据、社交媒体采集与时空人类移动行为</li>
+            <li>GLAM 机构（美术馆、图书馆、档案馆、博物馆）知识呈现与数据可视化</li>
+          </ul>
+        </dd>
+      </dl>
+      <h2 class="catchphrase reveal-up delay-4">以数据为语言，讲述真实的人与制度</h2>
+      <p class="lead-paragraph reveal-up delay-4">
+        在每一项制度设计、每一次文化流变与每一段职业生涯的背后，都交织着无数真实个体的命运与抉择。将计算方法深度融入社会科学与人文学，让隐形的制度壁垒得以被看见——数据不仅是工具，它是一种理解社会、唤起改变的语言。
+      </p>
+      <div class="scroll-cue reveal-up delay-4">
+        <span class="scroll-cue-line"></span>
+        <span>Scroll to Explore</span>
+      </div>
+    </div>
+  </section>
+
+  <article class="article-container">
+    <div class="qa-block reveal-up">
+      <h3 class="question">是什么契机激发了你将计算方法与社会学、人文学深度融合？</h3>
+      <div class="answer">
+        <p>源于我希望在“看见森林”的同时，依然能够“看清每一棵树”。传统的质性社会学能够对个体经验提供极具共情的深刻洞察，但往往难以跨越数十年时间维度或全国尺度去捕捉宏观制度结构；反过来，纯粹的数据科学擅长处理海量规模，却有时容易把鲜活的人简化为冰冷的统计噪点。</p>
+        <p>我很早就意识到，如果将机器学习、复杂网络分析等计算方法深度植根于社会科学的问题意识之中，我们不仅不会抹去人的温度，反而能照亮那些被制度遮蔽的真实人生。数据从来不是冰冷的——当它与社会学的想象力结合时，数据就是讲述真实的人与制度最诚实的媒介。</p>
+      </div>
+    </div>
+
+    <div class="qa-block reveal-up">
+      <h3 class="question">你的核心研究之一聚焦于日本学术晋升路径与性别不平等。为什么这一议题对社会如此重要？</h3>
+      <div class="answer">
+        <p>大学与科研机构是人类知识创新与社会进步的引擎，但学者如何被聘用、如何获得科研经费、又如何实现职称晋升，其内部机制在很大程度上仍是一个“黑箱”。当学缘壁垒（学术近亲繁殖）、机构声望阶层或隐性的性别偏见阻碍了优秀学者的发展时，整个社会都会因此错失本可诞生的突破性思想。</p>
+        <p>通过构建“日本学术晋升机制计算分析平台”，我的研究追踪了数以万计学者的长期职业生涯序列，量化剖析科研资助、机构流动与合著网络如何与性别因素交织。把这些看不见的结构性瓶颈转化为可量化、可视化的透明图景，是推动建立更公平、更具包容性的学术生态系统的第一步。</p>
+      </div>
+    </div>
+
+    <div class="qa-block reveal-up">
+      <h3 class="question">除了高等教育与学术劳动力市场，你还广泛涉足旅游大数据与 GLAM 机构的知识呈现。生成式 AI 与大语言模型（LLM）是如何将这些领域串联起来的？</h3>
+      <div class="answer">
+        <p>从本质上讲，无论是一位在高校体制中探索职业路径的学者、一位在文化遗产地游历的旅客，还是一座策划历史档案展览的博物馆，它们的核心问题都是一致的：人类如何与知识、空间以及社会制度发生互动。</p>
+        <p>过去，从数百万条社交媒体帖子、历史馆藏档案或非结构化制度文本中提取结构化意义，往往耗费巨大。如今，借助 Python 机器学习、大规模数据处理管线与大语言模型（LLM），我们得以在非结构化的人类表达与严谨的定量分析之间架起桥梁。在与文化旅游企业及公共机构的合作实践中，我们利用生成式 AI 绘制文化知识如何被公众感知与再现的图谱，让技术成为连接文化遗产与公众体验的翻译官。</p>
+      </div>
+    </div>
+
+    <figure class="editorial-figure">
+      <div class="figure-frame">
+        <img src="scene.jpg" alt="裴荣康在东北大学研究室">
+      </div>
+      <figcaption>Untitled (A Researcher in Sendai #1024), 2026. 在东北大学研究室中对学术职业流动轨迹与制度网络进行计算建模与可视化。</figcaption>
+    </figure>
+
+    <div class="qa-block reveal-up">
+      <h3 class="question">这也正是你主持省部级及产学合作项目、与企业和公共机构共创数据平台的初衷吗？</h3>
+      <div class="answer">
+        <p>完全正确。我始终认为，社会科学的研究成果不应当仅仅停留在学术期刊的纸面上。无论是构建日本学术晋升机制计算分析平台，还是与文旅企业、公共部门共创“智慧旅游数据平台”与“学术生涯可视化系统”，我最核心的目标都是“可触达性”。</p>
+        <p>一个再精妙的回归模型或拥有数百万节点的网络图，如果政策制定者、博物馆策展人或普通公众无法直观理解并与之交互，它就很难真正产生社会价值。因此，数据可视化在我的技术工作流中占据着核心地位。通过将庞杂的数据转化为直观的交互系统，我们全力推动“AI × 文化 × 社会数据”的跨界融合，让静态的研究变成一场持续发生的社会对话。</p>
+      </div>
+    </div>
+
+    <div class="qa-block reveal-up">
+      <h3 class="question">在研究与编码之外，你平时有哪些个人爱好？</h3>
+      <div class="answer">
+        <p>离开代码终端的时候，我喜欢慢下来去感受真实可触的感官世界。手冲与意式精品咖啡是我每天雷打不动的仪式——某种程度上，萃取一杯好咖啡与数据科学非常相似，都需要在研磨度、水温、流速等无数变量的精密控制与直觉之间寻找完美平衡。此外，我也喜欢带着相机穿行于不同城市的街巷，探访美术馆与历史建筑，在旅途中观察人们如何在日常空间中自然地生活与流动。</p>
+      </div>
+    </div>
+
+    <figure class="editorial-figure">
+      <div class="figure-frame">
+        <img src="algorithm.jpg" alt="算法与多维网络拓扑可视化">
+      </div>
+      <figcaption>摄影：支撑裴荣康计算社会科学研究的底层多层网络拓扑模型与 LLM 大规模数据处理流水线。</figcaption>
+    </figure>
+
+    <section class="bio-section reveal-up">
+      <div class="bio-label">Researcher Profile</div>
+      <h3>裴荣康（Rongkang Pei）</h3>
+      <p>东北大学（Tohoku University）计算人文与社会学博士研究生。致力于将计算方法深度融入社会科学，运用数据讲述真实的人与制度。其研究与教学横跨旅游大数据、生成式人工智能、学术晋升路径与性别不平等、以及 GLAM 机构（美术馆、图书馆、档案馆、博物馆）知识呈现等交叉领域，擅长运用 Python、机器学习、数据可视化、社交媒体采集、大语言模型（LLM）与大规模数据处理技术揭示宏观制度结构与微观个体行为之间的互动机制。</p>
+      <p>在学术探索与社会实践方面，裴荣康主持多项省部级课题及产学合作项目，主导构建了“日本学术晋升机制计算分析平台”；同时积极携手文化旅游企业及公共机构，共创智慧旅游数据平台与学术生涯可视化系统，深度推动“AI × 文化 × 社会数据”的融合创新。他始终秉持这一信念：“数据不仅是工具，它是一种理解社会、唤起改变的语言。”</p>
+      <div class="credit-line">
+        <span>研究的浪漫 — The Romance of Research</span>
+        <span>东北大学 / Tohoku University</span>
+      </div>
+    </section>
+  </article>
+</main>
+
+<footer>
+  <p>&copy; 2026 Rongkang Pei (裴 榮康) &bull; The Romance of Research Fluid Edition &bull; Tohoku University</p>
+</footer>
+
+<script>
+  // 1. Initialize Lenis Smooth Inertia Scrolling (replicates Tohoku Romance fluid scroll feel)
+  let lenis;
+  if (typeof Lenis !== 'undefined' && !window.matchMedia('(prefers-reduced-motion: reduce)').matches) {
+    lenis = new Lenis({
+      duration: 1.25,
+      easing: (t) => Math.min(1, 1.001 - Math.pow(2, -10 * t)),
+      smoothWheel: true,
+      wheelMultiplier: 0.95,
+      touchMultiplier: 1.5
+    });
+    function raf(time) {
+      lenis.raf(time);
+      requestAnimationFrame(raf);
+    }
+    requestAnimationFrame(raf);
+  }
+
+  // 2. IntersectionObserver for Staggered Fluid Reveal of Text & Editorial Figures
+  let observer;
+  function initScrollReveal() {
+    if (observer) observer.disconnect();
+    observer = new IntersectionObserver((entries) => {
+      entries.forEach((entry) => {
+        if (entry.isIntersecting) {
+          entry.target.classList.add('is-visible');
+        }
+      });
+    }, {
+      root: null,
+      threshold: 0.12,
+      rootMargin: '0px 0px -60px 0px'
+    });
+
+    const activeMain = document.querySelector('main[data-lang].active');
+    if (activeMain) {
+      activeMain.querySelectorAll('.reveal-up, .editorial-figure').forEach((el) => {
+        observer.observe(el);
+      });
+    }
+  }
+
+  // 3. Subtle Parallax & Reading Progress Bar on Scroll
+  window.addEventListener('scroll', () => {
+    const scrollTop = window.scrollY || document.documentElement.scrollTop;
+    const docHeight = document.documentElement.scrollHeight - window.innerHeight;
+    const progress = docHeight > 0 ? (scrollTop / docHeight) * 100 : 0;
+    const progressBar = document.getElementById('scroll-progress');
+    if (progressBar) progressBar.style.width = progress + '%';
+
+    // Subtle parallax zoom/shift on active hero portrait
+    const activeHeroImg = document.querySelector('main[data-lang].active .parallax-hero');
+    if (activeHeroImg && scrollTop < window.innerHeight * 1.5) {
+      const translateY = scrollTop * 0.06;
+      const scale = 1.04 + (scrollTop * 0.00004);
+      activeHeroImg.style.transform = `translate3d(0, ${translateY}px, 0) scale(${scale})`;
+    }
+  }, { passive: true });
+
+  // 4. Multi-language Switcher (EN / JA / 繁中 TW / 简中 CN)
+  function setLang(lang) {
+    document.querySelectorAll('main[data-lang]').forEach(el => {
+      const isTarget = el.getAttribute('data-lang') === lang;
+      el.classList.toggle('active', isTarget);
+      if (isTarget) {
+        // Reset and trigger smooth entrance animations for the newly selected language
+        el.querySelectorAll('.reveal-up, .editorial-figure').forEach(item => {
+          item.classList.remove('is-visible');
+        });
+      }
+    });
+
+    ['en', 'ja', 'tw', 'cn'].forEach(code => {
+      const btn = document.getElementById('btn-' + code);
+      if (btn) btn.classList.toggle('active', code === lang);
+    });
+
+    const langMap = { en: 'en', ja: 'ja', tw: 'zh-TW', cn: 'zh-CN' };
+    document.documentElement.lang = langMap[lang] || 'en';
+
+    if (lenis) {
+      lenis.scrollTo(0, { immediate: true });
+    } else {
+      window.scrollTo({ top: 0, behavior: 'smooth' });
+    }
+
+    setTimeout(initScrollReveal, 60);
+  }
+
+  // Initialize on first load
+  window.addEventListener('DOMContentLoaded', () => {
+    initScrollReveal();
+  });
+</script>
+</body>
+</html>
