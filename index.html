@@ -3,22 +3,11 @@
 <head>
   <meta charset="UTF-8" />
   <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-  <title>The Romance of Research — Rongkang Pei (裴 榮康) | Tohoku University</title>
-  <meta name="description" content="Rongkang Pei is a doctoral researcher at Tohoku University working across computational social science, digital humanities, generative AI, academic careers, and gender inequality." />
-  <meta name="author" content="Rongkang Pei" />
-  <meta name="theme-color" content="#faf9f5" />
-  <link rel="canonical" href="https://peirongkang.github.io/" />
-  <link rel="icon" href="portrait.jpg" type="image/jpeg" />
-  <meta property="og:type" content="website" />
-  <meta property="og:title" content="The Romance of Research — Rongkang Pei" />
-  <meta property="og:description" content="Computational social science, digital humanities, generative AI, and the institutions that shape academic careers." />
-  <meta property="og:url" content="https://peirongkang.github.io/" />
-  <meta property="og:image" content="https://peirongkang.github.io/portrait.jpg" />
-  <meta name="twitter:card" content="summary_large_image" />
+  <title>The Romance of Research — Rongkang PEI (裴 榮康) | Tohoku University</title>
   <link rel="preconnect" href="https://fonts.googleapis.com">
   <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
   <link href="https://fonts.googleapis.com/css2?family=Cormorant+Garamond:ital,wght@0,500;0,600;0,700;1,400&family=Inter:wght@300;400;500;600&family=Noto+Sans+JP:wght@300;400;500;600&family=Noto+Serif+JP:wght@400;600;700&family=Noto+Sans+TC:wght@300;400;500;600&family=Noto+Serif+TC:wght@500;600;700&family=Noto+Sans+SC:wght@300;400;500;600&family=Noto+Serif+SC:wght@500;600;700&display=swap" rel="stylesheet">
-  <!-- Lenis Smooth Scroll Library for Tohoku University style fluid inertia scrolling -->
+  <!-- Lenis Smooth Inertia Scrolling Library -->
   <script src="https://unpkg.com/@studio-freight/lenis@1.0.42/dist/lenis.min.js"></script>
   <style>
     :root {
@@ -58,7 +47,7 @@
       height: 70px;
       display: flex; justify-content: space-between; align-items: center;
       padding: 0 48px;
-      background: rgba(250, 249, 245, 0.86);
+      background: rgba(250, 249, 245, 0.88);
       backdrop-filter: blur(14px);
       -webkit-backdrop-filter: blur(14px);
       border-bottom: 1px solid var(--border);
@@ -127,12 +116,6 @@
       font-size: 3.3rem; font-weight: 600; line-height: 1.18; margin-bottom: 14px;
       letter-spacing: -0.01em;
     }
-    .researcher-name ruby { ruby-align: center; }
-    .researcher-name rt {
-      font-family: 'Noto Sans JP', sans-serif;
-      font-size: 0.78rem; font-weight: 400; color: var(--muted);
-      letter-spacing: 0.12em;
-    }
     .affiliation {
       font-size: 0.96rem; color: var(--muted); margin-bottom: 38px; line-height: 1.65;
     }
@@ -155,11 +138,11 @@
 
     .catchphrase {
       font-family: 'Cormorant Garamond', 'Noto Serif JP', 'Noto Serif TC', 'Noto Serif SC', serif;
-      font-size: 2.75rem; line-height: 1.24; font-weight: 600; margin-bottom: 26px;
+      font-size: 2.7rem; line-height: 1.24; font-weight: 600; margin-bottom: 26px;
       color: #111;
     }
     .lead-paragraph {
-      font-size: 1.08rem; font-weight: 400; color: #2b2b2b; line-height: 1.85;
+      font-size: 1.07rem; font-weight: 400; color: #2b2b2b; line-height: 1.85;
     }
 
     /* Scroll Indicator */
@@ -181,12 +164,12 @@
       100% { left: 100%; }
     }
 
-    /* Main Interview Article & Fluid Reveal Animations */
+    /* Main Article Container & Fluid Reveal */
     .article-container {
-      max-width: 790px; margin: 0 auto; padding: 110px 28px 120px;
+      max-width: 810px; margin: 0 auto; padding: 110px 28px 120px;
     }
     .qa-block {
-      margin-bottom: 68px;
+      margin-bottom: 72px;
     }
     .question {
       font-family: 'Cormorant Garamond', 'Noto Serif JP', 'Noto Serif TC', 'Noto Serif SC', serif;
@@ -197,6 +180,22 @@
       margin-bottom: 20px; font-size: 1.02rem; color: #2b2b2b;
     }
     .answer p:last-child { margin-bottom: 0; }
+
+    /* Selected Publications & Projects Mini-Cards inside article */
+    .cv-highlights {
+      background: var(--card-bg);
+      border-left: 3px solid var(--accent);
+      padding: 28px 34px;
+      margin: 32px 0;
+      border-radius: 0 2px 2px 0;
+    }
+    .cv-highlights h4 {
+      font-family: 'Cormorant Garamond', 'Noto Serif JP', 'Noto Serif TC', serif;
+      font-size: 1.25rem; font-weight: 600; margin-bottom: 12px; color: var(--accent);
+    }
+    .cv-highlights ul { list-style: none; padding-left: 0; font-size: 0.92rem; color: var(--muted); }
+    .cv-highlights li { margin-bottom: 10px; line-height: 1.6; }
+    .cv-highlights li strong { color: var(--text); }
 
     /* Editorial Figures with Curtain Reveal & Parallax */
     .editorial-figure {
@@ -231,7 +230,7 @@
       opacity: 1; transform: translateY(0);
     }
 
-    /* Scroll Reveal Utility Classes (Tohoku Romance Fluid Style) */
+    /* Scroll Reveal Utility Classes */
     .reveal-up {
       opacity: 0;
       transform: translate3d(0, 38px, 0);
@@ -288,43 +287,9 @@
       .hero-image { position: relative; top: 0; height: 70vh; }
       .hero-meta { padding: 48px 24px; }
       .researcher-name { font-size: 2.5rem; }
-      .catchphrase { font-size: 2.15rem; }
+      .catchphrase { font-size: 2.1rem; }
       .editorial-figure { margin: 52px 0; }
       .bio-section { padding: 34px 24px; }
-    }
-
-    @media (max-width: 520px) {
-      header { height: 64px; padding: 0 12px; gap: 8px; }
-      .brand {
-        max-width: 94px; flex: 0 1 94px;
-        font-size: 0.78rem; line-height: 1.08; letter-spacing: 0.025em;
-      }
-      .lang-switch { gap: 0; }
-      .lang-switch button { padding: 6px 5px; font-size: 0.7rem; }
-      .lang-switch button.active::after { left: 5px; right: 5px; }
-      .hero { padding-top: 64px; }
-      .hero-image { height: 58vh; min-height: 390px; }
-      .hero-meta { padding: 42px 20px 58px; }
-      .researcher-name { font-size: 2.15rem; }
-      .catchphrase { font-size: 1.9rem; }
-      .lead-paragraph { font-size: 1rem; }
-      .article-container { padding: 78px 20px 90px; }
-      .question { font-size: 1.38rem; }
-      .credit-line { gap: 12px; flex-direction: column; }
-      footer { padding: 36px 20px; }
-    }
-
-    @media (prefers-reduced-motion: reduce) {
-      html { scroll-behavior: auto; }
-      *, *::before, *::after {
-        animation-duration: 0.01ms !important;
-        animation-iteration-count: 1 !important;
-        scroll-behavior: auto !important;
-        transition-duration: 0.01ms !important;
-      }
-      .reveal-up, .editorial-figure figcaption { opacity: 1; transform: none; }
-      .figure-frame { clip-path: none; }
-      .editorial-figure img { transform: none; }
     }
 
     [data-lang] { display: none; }
@@ -344,141 +309,15 @@
   <div class="header-controls">
     <div class="lang-switch" role="navigation" aria-label="Language selector">
       <button onclick="setLang('en')" id="btn-en">EN</button>
-      <button onclick="setLang('ja')" id="btn-ja">日本語</button>
-      <button onclick="setLang('tw')" id="btn-tw" class="active">繁中</button>
+      <button onclick="setLang('ja')" id="btn-ja" class="active">JA</button>
+      <button onclick="setLang('tw')" id="btn-tw">繁中 (TW)</button>
       <button onclick="setLang('cn')" id="btn-cn">简中</button>
     </div>
   </div>
 </header>
 
-<!-- ==================== 1. 台灣繁體中文版 (繁中 TW) ==================== -->
-<main data-lang="tw" class="active">
-  <section class="hero">
-    <div class="hero-image">
-      <img src="portrait.jpg" alt="裴榮康 肖像" class="parallax-hero">
-    </div>
-    <div class="hero-meta">
-      <div class="series-tag reveal-up">研究的浪漫 — The Romance of Research</div>
-      <h1 class="researcher-name reveal-up delay-1">裴 榮康 <span style="font-size:1.35rem;font-weight:400;color:var(--muted);">（Rongkang Pei）</span></h1>
-      <div class="affiliation reveal-up delay-2">
-        東北大學（Tohoku University）大學院文學研究科<br>
-        計算人文與社會學 博士生
-      </div>
-      <dl class="specialty-box reveal-up delay-3">
-        <dt>專業領域</dt>
-        <dd>計算社會科學・數位人文（Computational Humanities &amp; Sociology）</dd>
-        <dt>研究與教學領域</dt>
-        <dd>
-          <ul>
-            <li>學術晉升路徑、科研制度機制與性別不平等</li>
-            <li>生成式人工智慧（Generative AI）、大型語言模型（LLM）與大規模社會資料處理</li>
-            <li>旅遊大數據、社群媒體資料擷取與時空人類移動行為</li>
-            <li>GLAM 機構（美術館、圖書館、檔案館、博物館）知識呈現與資料視覺化</li>
-          </ul>
-        </dd>
-      </dl>
-      <h2 class="catchphrase reveal-up delay-4">以資料為語言，訴說真實的人與制度</h2>
-      <p class="lead-paragraph reveal-up delay-4">
-        在每一項制度設計、每一次文化流變與每一段學術生涯的背後，都交織著無數真實個體的命運與抉擇。將計算方法深度融入社會科學與人文關懷，讓隱形的結構性壁壘得以被看見——資料不僅是工具，它是一種理解社會、喚起改變的語言。
-      </p>
-      <div class="scroll-cue reveal-up delay-4">
-        <span class="scroll-cue-line"></span>
-        <span>Scroll to Explore</span>
-      </div>
-    </div>
-  </section>
-
-  <article class="article-container">
-    <div class="qa-block reveal-up">
-      <h3 class="question">是什麼契機激發了你將計算方法與社會學、人文學深度融合？</h3>
-      <div class="answer">
-        <p>這源於我一直渴望在「看見整座森林」的同時，依然不忽略「每一棵樹的脈絡」。傳統的質性社會學能對個體經驗提供極具同理心的深刻洞察，但往往難以跨越數十年的時間尺度或全國範圍，去捕捉宏觀的制度結構；相對地，純粹的資料科學雖然擅長處理龐大規模的資料，卻有時容易將鮮活的個人簡化為冰冷的統計雜訊。</p>
-        <p>我很早就意識到，如果能將機器學習、社會網絡分析等計算方法深度紮根於社會科學的問題意識之中，我們不僅不會抹去人的溫度，反而能照亮那些被制度遮蔽的真實人生。資料從來不是冰冷的——當它與社會學的想像力結合時，資料就是訴說真實的人與制度最誠實的媒介。</p>
-      </div>
-    </div>
-
-    <div class="qa-block reveal-up">
-      <h3 class="question">你的核心研究之一聚焦於日本學術晉升路徑與性別不平等。為什麼這項議題對社會如此關鍵？</h3>
-      <div class="answer">
-        <p>大學與研究機構是推進人類知識創新與社會進步的引擎，然而學者們如何被聘任、如何取得研究經費、又如何獲得升等，其內部運作機制在很大程度上仍是一個「黑盒子」。當學緣壁壘（學術近親繁殖）、機構聲望階層或隱性的性別偏見阻礙了優秀研究者的發展時，整個社會都會因此錯失本該誕生的突破性思想。</p>
-        <p>透過建構「日本學術晉升機制計算分析平台」，我的研究長期追蹤了數以萬計學者的學術生涯序列，量化剖析研究補助、機構間流動與合著網絡如何與性別因素交織。將這些看不見的結構性瓶頸轉化為可量化、可視覺化的透明圖像，正是推動建立更公平、更具包容性的學術生態系的第一步。</p>
-      </div>
-    </div>
-
-    <div class="qa-block reveal-up">
-      <h3 class="question">除了高等教育與學術勞動市場，你也廣泛投入旅遊大數據與 GLAM 機構的知識呈現。生成式 AI 與大型語言模型（LLM）是如何將這些多元領域串聯起來的？</h3>
-      <div class="answer">
-        <p>從本質上來看，無論是一位在大學體制中探索職涯路徑的學者、一位造訪文化資產場域的旅人，還是一座策劃歷史檔案展覽的博物館，核心問題其實是一致的：人類如何與知識、空間以及社會制度產生互動。</p>
-        <p>過去，要從數百萬則社群媒體貼文、歷史館藏檔案或非結構化的制度文本中萃取出結構化意義，往往耗時費力。如今，藉由 Python 機器學習、自動化資料處理管線（Data Pipelines）與大型語言模型（LLM），我們得以在非結構化的人類表達與嚴謹的計量分析之間架起橋樑。在與文化旅遊企業及公部門的合作實踐中，我們運用生成式 AI 繪製文化知識如何被大眾感知與再現的知識圖譜，讓 AI 成為連結文化資產與公眾體驗的轉譯者。</p>
-      </div>
-    </div>
-
-    <figure class="editorial-figure">
-      <div class="figure-frame">
-        <img src="scene.jpg" alt="裴榮康於東北大學研究室">
-      </div>
-      <figcaption>Untitled (A Researcher in Sendai #1024), 2026. 於東北大學研究室中對學術職涯流動軌跡與制度網絡進行計算建模與資料視覺化。</figcaption>
-    </figure>
-
-    <div class="qa-block reveal-up">
-      <h3 class="question">這也是你主持政府部會級計畫與產學合作專案、與企業及公共機構共創資料平台的初衷嗎？</h3>
-      <div class="answer">
-        <p>完全正確。我始終深信，社會科學的研究成果不應該只被鎖在學術期刊的字裡行間。無論是建構日本學術晉升機制計算分析平台，或是與文創旅遊企業、公部門共創「智慧旅遊資料平台」與「學術生涯視覺化系統」，我最核心的目標都是「可近用性（Accessibility）」。</p>
-        <p>一個再精妙的迴歸模型或擁有數百萬節點的複雜網絡圖，如果政策制定者、博物館策展人或一般市民無法直觀地理解並與之互動，就很難真正產生社會影響力。因此，「資料視覺化」在我的研究工作流中扮演著關鍵角色。透過將龐雜的巨量資料轉化為直覺且具美感的互動介面，我們賦權給實務工作者與大眾自己去探索洞見，真正推動「AI × 文化 × 社會資料」的跨域融合。</p>
-      </div>
-    </div>
-
-    <div class="qa-block reveal-up">
-      <h3 class="question">在 AI 與人文社會科學的交界處進行開拓，你目前面臨最大的挑戰是什麼？</h3>
-      <div class="answer">
-        <p>主要有三大挑戰：資料倫理與雜訊、演算法偏見，以及跨領域的語言轉譯。首先，不同於自然科學在實驗室中取得的數據，社會資料天生帶有缺失與雜訊，且高度涉及個人隱私與研究倫理。在進行大規模社群媒體資料擷取或職涯追蹤時，資料清理與結構化必須極為審慎，才不會扭曲數字背後真實的生命經驗。</p>
-        <p>其次，LLM 與機器學習模型很容易在無意間複製甚至放大既有的社會偏見。我們不能把 AI 當作全知的神諭，而必須建立具備可解釋性與透明度的工作流，讓社會學理論去引導演算法，而非被演算法牽著走。最後，在資訊工程學者與人文社會學者之間建立「共同語言」需要持續不斷的對話，但也正是這種跨領域碰撞的火花，最能激發出令人驚豔的原創研究。</p>
-      </div>
-    </div>
-
-    <div class="qa-block reveal-up">
-      <h3 class="question">你曾主持多項研究計畫與產學合作，在日本東北大學做研究的經歷帶給你什麼樣的獨特視角？</h3>
-      <div class="answer">
-        <p>在東北大學從事研究提供了一個極佳的觀測視野。日本擁有全世界保存最縝密的制度檔案與深厚的文化資產，同時也站在高齡少子化與組織轉型等結構性挑戰的最前線。身處這樣的學術環境中，讓我能結合第一線的田野觀察與跨文化的比較社會學視野。更重要的是，東北大學自創校以來秉持的「實學尊重（実学尊重）」精神，與我自己的信念高度共鳴——計算社會科學的終極目標，是為了服務真實世界的制度改革與文化活力。</p>
-      </div>
-    </div>
-
-    <div class="qa-block reveal-up">
-      <h3 class="question">對於想投入計算社會科學或數位人文領域的年輕研究者，你有什麼建議？</h3>
-      <div class="answer">
-        <p>不要被技術工具嚇倒，但同時也千萬不要成為「工具的奴隸」。在這個時代，我們很容易迷失在追逐最新的 AI 模型或撰寫複雜的 Python 腳本中，卻忘了研究的初衷。請永遠從一個真正觸動你的人文或社會提問出發——問問自己：「這項制度影響了誰？有哪些人的聲音被忽略了？」只要你心中有一個迫切想解答的真實問題，學習程式設計、機器學習與資料視覺化就會變成一場令人著迷的解謎過程。</p>
-      </div>
-    </div>
-
-    <div class="qa-block reveal-up">
-      <h3 class="question">最後，在離開終端機與研究室的日常裡，你平常有哪些興趣？</h3>
-      <div class="answer">
-        <p>離開螢幕與程式碼之後，我喜歡放慢步調，重新連結真實的感官世界。沖煮精品咖啡是我每天不可或缺的儀式——某種程度上，調整義式濃縮或手沖咖啡的萃取參數，跟資料科學實驗非常相似，都必須在研磨度、水溫、流速等無數變數的控制與直覺之間尋找完美平衡。此外，我也喜歡帶著相機走訪不同城市的街廓巷弄、參觀美術館與歷史建築，在旅途中觀察人們如何在日常空間裡自然地生活與移動。</p>
-      </div>
-    </div>
-
-    <figure class="editorial-figure">
-      <div class="figure-frame">
-        <img src="algorithm.jpg" alt="演算法與多維網絡拓撲視覺化">
-      </div>
-      <figcaption>攝影：支撐裴榮康計算社會科學研究的底層多層網絡拓撲模型與 LLM 大規模資料處理管線（Data Pipelines）。</figcaption>
-    </figure>
-
-    <section class="bio-section reveal-up">
-      <div class="bio-label">Researcher Profile</div>
-      <h3>裴 榮康（Rongkang Pei）</h3>
-      <p>東北大學（Tohoku University）大學院文學研究科計算人文與社會學博士生。致力於將計算方法深度融入社會科學，運用資料訴說真實的人與制度。其研究與教學橫跨旅遊大數據、生成式人工智慧、學術晉升路徑與性別不平等，以及 GLAM 機構（美術館、圖書館、檔案館、博物館）知識呈現等跨域課題；擅長運用 Python、機器學習、資料視覺化、社群媒體資料擷取、大型語言模型（LLM）與大規模資料處理技術，剖析宏觀制度結構與微觀人類行為之間的動態機制。</p>
-      <p>在學術研究與社會實踐方面，裴榮康主持多項政府部會級研究計畫與產學合作專案，主導建構「日本學術晉升機制計算分析平台」；同時積極攜手文化旅遊企業及公共機構，共創智慧旅遊資料平台與學術生涯視覺化系統，深度推動「AI × 文化 × 社會資料」的跨域整合。他始終秉持這份信念：「資料不僅是工具，它是一種理解社會、喚起改變的語言。」</p>
-      <div class="credit-line">
-        <span>研究的浪漫 — The Romance of Research</span>
-        <span>東北大學 / Tohoku University</span>
-      </div>
-    </section>
-  </article>
-</main>
-
-<!-- ==================== 2. NATIVE JAPANESE VERSION (JA) ==================== -->
-<main data-lang="ja">
+<!-- ==================== 1. NATIVE JAPANESE VERSION (JA) ==================== -->
+<main data-lang="ja" class="active">
   <section class="hero">
     <div class="hero-image">
       <img src="portrait.jpg" alt="裴 榮康 ポートレート" class="parallax-hero">
@@ -486,29 +325,28 @@
     <div class="hero-meta">
       <div class="series-tag reveal-up">研究のロマンス — The Romance of Research</div>
       <h1 class="researcher-name reveal-up delay-1">
-        <ruby>裴 榮康</ruby>
-        <span style="font-size:1.25rem;font-weight:400;color:var(--muted);display:block;margin-top:6px;">ハイ エイコウ/ Rongkang PEI</span>
+        裴 榮康
+        <span style="font-size:1.15rem;font-weight:400;color:var(--muted);display:block;margin-top:8px;letter-spacing:0.04em;">ハイ エイコウ / Rongkang PEI</span>
       </h1>
       <div class="affiliation reveal-up delay-2">
-        東北大学 大学院文学研究科<br>
-        計算人文社会学 博士課程後期（リサーチャー）
+        東北大学 大学院文学研究科 計算社会科学・科学計量学 博士課程後期<br>
+        AGS RISE / LEAP Doctoral Research Fellow
       </div>
       <dl class="specialty-box reveal-up delay-3">
         <dt>専門分野</dt>
-        <dd>計算社会科学・デジタルヒューマニティーズ</dd>
+        <dd>計算社会科学・科学の科学（Science of Science）・デジタルヒューマニティーズ</dd>
         <dt>主な研究テーマ</dt>
         <dd>
           <ul>
-            <li>学術キャリアパス・昇進メカニズムとジェンダー不平等の実証分析</li>
-            <li>大規模言語モデル（LLM）および機械学習を用いた社会・人文知の解明</li>
-            <li>観光ビッグデータ解析と人間行動の時空間モビリティ</li>
-            <li>GLAM機関（美術館・図書館・文書館・博物館）における知識表現と構造化</li>
+            <li>日本のアカデミアにおける昇進タイミング、学閥・学内昇進（Academic Inbreeding）、組織間流動性とジェンダー不平等の縦断的因果分析</li>
+            <li>大規模研究データ統合：researchmap履歴とKAKEN/KAKENHI採択記録を紐付けた約26万人の研究者パネルデータ構築</li>
+            <li>トランスフォーマー・大規模言語モデル（LLM）を用いた社会科学・文化的言説の自動テキスト分析</li>
           </ul>
         </dd>
       </dl>
-      <h2 class="catchphrase reveal-up delay-4">データという言語で、人と制度の「リアル」を紡ぎ出す</h2>
+      <h2 class="catchphrase reveal-up delay-4">大規模な縦断データで、科学技術と社会の構造を解き明かす</h2>
       <p class="lead-paragraph reveal-up delay-4">
-        社会の制度、文化の変容、そして一人ひとりの人生の転機——その背後には、目に見えない構造と無数の人々の物語が交錯しています。計算科学の手法を社会科学・人文学の深みへと融合させることで、見過ごされてきた不平等を可視化し、データを「社会を動かす力」へと昇華させる。
+        個人のキャリア形成から国家の科学ガバナンスに至るまで、エビデンスに基づいた計算手法によって構造的不平等を可視化し、科学と社会の未来をデザインする。
       </p>
       <div class="scroll-cue reveal-up delay-4">
         <span class="scroll-cue-line"></span>
@@ -519,88 +357,210 @@
 
   <article class="article-container">
     <div class="qa-block reveal-up">
-      <h3 class="question">計算科学の手法と、社会学や人文学を融合させようと思ったきっかけは何ですか？</h3>
+      <h3 class="question">研究者（Science of Science）および計算社会科学の道に進まれたきっかけは何ですか？</h3>
       <div class="answer">
-        <p>「木を見て森を見ず」でもなく、「森を見て木を見ず」でもない、人間社会の全体像と個人のリアリティを同時に捉えたいという強い思いが原点にあります。従来の質的な社会調査は、個人の経験や文脈に深く寄り添うことができる一方で、数十年単位の歴史的変化や国全体のマクロな構造を把握することには限界がありました。逆に、純粋なデータサイエンスは膨大なデータを処理できますが、時に生身の人間を単なる「統計上の数値」として切り捨ててしまう危うさがあります。</p>
-        <p>もし、機械学習やネットワーク分析といった計算手法を社会科学の文脈に深く根付かせることができれば、人間の温もりを消すどころか、むしろ制度の陰に隠れた人々の営みを鮮やかに照らし出せるのではないかと考えたのです。データは決して冷たいものではありません。社会学的な想像力をもって向き合えば、データは現実の人々と制度のあり方を最も誠実に語る「言葉」になります。</p>
+        <p>私の背景には、マルチメディアデザイン（学士）からデジタルコンテンツ（修士）、マスコミュニケーション（修士）、そして現在の東北大学における計算社会科学・文学研究科（博士）へと至る、一貫した学際的探求があります[cite: 30]。異分野を渡り歩く中で痛感したのは、「人間の行動や社会制度のダイナミクスを直感だけで語るのではなく、厳密な大規模データと計算モデルを通じて真のメカニズムを暴く必要がある」ということでした。</p>
+        <p>現在は科学の科学（Science of Science）および計算社会学を軸に、約26万人の研究者キャリアと日本の科研費（KAKENHI）データを統合した巨大な縦断データベース（Panel Data）を独自に構築し[cite: 30]、データサイエンスの力で社会科学の古典的難題にアプローチしています。</p>
       </div>
     </div>
 
     <div class="qa-block reveal-up">
-      <h3 class="question">研究の柱の一つとして、日本のアカデミアにおけるキャリアパスやジェンダー不平等に取り組まれています。なぜこのテーマが社会にとって重要なのでしょうか？</h3>
+      <h3 class="question">『Scientific Reports』に採択された日本のアカデミアにおけるジェンダー不平等の研究について教えてください。</h3>
       <div class="answer">
-        <p>大学や研究機関は知の創造と社会発展の原動力ですが、研究者たちがどのように採用され、研究費を獲得し、昇進していくのかという内部のメカニズムは、実は多くの部分でブラックボックス化しています。もし、組織間の威信階層や学術的な同質性（アカデミック・インブリーディング）、あるいは無意識のジェンダーバイアスといった構造的な障壁によって優秀な研究者のキャリアが阻まれているとすれば、それは社会全体にとって計り知れない損失です。</p>
-        <p>私は現在、日本の学術昇進メカニズムを計算科学的に解析するプラットフォームを構築し、数万人規模の研究者の長期的なキャリア軌跡を追跡しています。科研費などの資金配分、組織間の流動性、共著ネットワークがジェンダーとどう交差しているのかを定量化し、視覚的に明らかにする。目に見えない構造的課題を誰もが直視できる形で提示することが、より公正で多様性に富んだ学術エコシステムを築くための第一歩だと考えています。</p>
+        <p>この研究（Pei et al., 2026）は、74,344件のresearchmapプロファイルを分析し、日本のアカデミアにおける昇進タイムラインのジェンダー差を生存分析（Event-history analysis）を用いて実証的に解明したものです[cite: 30, 31, 32]。博士号取得から准教授、そして教授へと至る各トランジションにおいて、どの段階でジェンダー格差が顕在化するのかを右側打切データ（Right-censored careers）を考慮しながら精緻に明らかにしました[cite: 32]。</p>
+
+        <div class="cv-highlights">
+          <h4>代表的な査読付き論文 (Selected Publications)</h4>
+          <ul>
+            <li><strong>Pei, R., et al. (2026).</strong> Gender inequality in academic promotion trajectories in Japan. <em>Scientific Reports</em>[cite: 31].</li>
+            <li><strong>Pei, R., Lyu, Z., & Wang, G. (2026).</strong> Transformer-driven automated analysis of social media narrative structure. <em>PLOS ONE</em>[cite: 31].</li>
+            <li><strong>Pei, R. (2025).</strong> Analysis of research trends in the field of museology: Node2Vec & network modelling. <em>Education Reform and Development</em>[cite: 31].</li>
+          </ul>
+        </div>
+
+        <p>単なる現象の描写にとどまらず、学閥・学内昇進（Academic Inbreeding）や組織間流動性、さらには科研費（KAKENHI）プロジェクトでの役割（非PIから主任研究者PIへの移行プロセス）がどのようにキャリアに影響するかを多角的に分析しています[cite: 30, 32]。</p>
       </div>
     </div>
 
     <div class="qa-block reveal-up">
-      <h3 class="question">アカデミアの分析にとどまらず、観光ビッグデータやGLAM（美術館・図書館・文書館・博物館）機関の知識表現など、幅広い領域を横断されていますね。生成AIやLLM（大規模言語モデル）は、これらの研究をどのように結びつけているのでしょうか？</h3>
+      <h3 class="question">約26万人の研究者データベースや「JPResearcher」プラットフォームの構築について、どのような技術的アプローチをとっていますか？</h3>
       <div class="answer">
-        <p>一見すると異なる分野に見えますが、根底にある問いは共通しています。それは「人間がいかにして知識や空間、そして社会制度と関わり合っているか」という問いです。</p>
-        <p>これまで、SNS上の膨大な投稿や歴史的アーカイブ、組織内の非構造化テキストから体系的な意味を抽出するには、膨大な時間と労力が必要でした。しかし、Pythonを用いた機械学習や大規模言語モデル（LLM）の登場によって、人々が紡ぎ出す自然な言葉や文化的実践を、厳密な計量分析へと橋渡しすることが可能になりました。私たちが進めているスマートツーリズムやGLAM機関との連携では、生成AIや大規模データ処理を活用して、文化資源や知識がどのように大衆に受容され、表現されているのかをマッピングしています。AIは、文化の繊細な文脈を損なうことなく、社会と知識のインターフェースを編み直す強力な翻訳機なのです。</p>
+        <p>私の研究の基盤となっているのは、researchmapのキャリア履歴とKAKENの競争的資金データを高度にリンクさせた、約26万人の大規模リンケージデータベースです[cite: 30]。PythonやSQLを駆使してデータクリーニング、エンティティ解決、研究者・年（Researcher-year）および研究者・プロジェクト・年パネルの構築を行っています[cite: 30]。</p>
+        <p>さらに、東北大学での博士研究の一環としてウェブベースの分析プラットフォーム **JPResearcher** を開発し、日本の学術昇進や資金配分の構造を可視化しました[cite: 30]。分析用の派生データと再現可能なコードパイプラインは、Harvard Dataverse（DOI: 10.7910/DVN/ZJXZEC）にてオープンサイエンスとして一般公開しています[cite: 30]。</p>
       </div>
     </div>
 
     <figure class="editorial-figure">
       <div class="figure-frame">
-        <img src="scene.jpg" alt="研究室での裴 榮康">
+        <img src="scene.jpg" alt="東北大学研究室での計算社会科学モデリング">
       </div>
-      <figcaption>Untitled (A Researcher in Sendai #1024), 2026. 学術キャリアの流動性と組織ネットワークの軌跡を可視化する。</figcaption>
+      <figcaption>データと社会のトポロジー (A Researcher in Sendai #1024), 2026. 東北大学研究室において、大規模縦断パネルデータとLLM駆動型パイプラインを用いた計算モデリングを遂行中。</figcaption>
     </figure>
 
     <div class="qa-block reveal-up">
-      <h3 class="question">そうした問題意識が、独自の分析プラットフォームの構築や、企業・公共機関との共創プロジェクトにつながっているのですね。</h3>
+      <h3 class="question">JSPS KAKENHI や国立科学技術国家財団（NSTC）などの大型プロジェクトにも深く参画されていますね。</h3>
       <div class="answer">
-        <p>その通りです。社会科学の知見は、学術論文の中だけに閉じ込めておくべきではないと常に考えています。日本の学術キャリア可視化システムを開発した際も、文化観光企業や自治体などの公共機関とスマートツーリズムのデータ基盤を共創した際も、私が最も重視したのは「現場の人々が直感的に触れられること」でした。</p>
-        <p>どれほど精緻な機械学習モデルや複雑なネットワーク図を作っても、政策立案者や学芸員、あるいは一般の市民がその意味を読み解けなければ、社会は何も変わりません。だからこそ、私の研究では「データビジュアライゼーション（可視化）」が極めて重要な役割を果たします。複雑で巨大なデータを、直感的で美しいインターフェースへと変換することで、AI・文化・社会データが交差する対話の場を生み出したいのです。</p>
+        <p>はい。これまでにJSPS科研費の挑戦的研究（公募研究・分担：社会秩序の問題をビッグデータで解明する計算社会学の構築）や、台湾国家科学技術国家財団（NSTC）の国際学術交流・人文社会高度研究プロジェクトなどに多数参画してきました[cite: 32]。また、東北大学アドバンスト大学院（AGS）の **LEAP Program** 採用者であり[cite: 32]、前年度までは **AGS RISE Program** の博士研究員フェローとして「ソーシャルメディア上の世論拡散メカニズムと社会的影響に関する研究」の責任者を務めました[cite: 32]。</p>
+
+        <div class="cv-highlights">
+          <h4>主要な競争的資金・博士フェローシップ (Research Fellowships & Grants)</h4>
+          <ul>
+            <li><strong>Tohoku University AGS LEAP Program Doctoral Fellow</strong> (2026–Present)[cite: 32].</li>
+            <li><strong>AGS RISE Program Lead Doctoral Fellow</strong> (2025–2026, JPMJFS22102)[cite: 32].</li>
+            <li><strong>JST SPRING Doctoral Research Fellow</strong> (2024–2025, JPMJSP2114)[cite: 32].</li>
+            <li><strong>JSPS KAKENHI Challenging Research (Exploratory)</strong> — Research Participant (2024–2026, JP24K21436)[cite: 32].</li>
+          </ul>
+        </div>
       </div>
     </div>
 
     <div class="qa-block reveal-up">
-      <h3 class="question">AIと人文・社会科学の境界領域を切り拓く中で、現在直面している最大の課題は何ですか？</h3>
+      <h3 class="question">今後のポスドク研究アジェンダと、学術界への貢献に向けたビジョンを聞かせてください。</h3>
       <div class="answer">
-        <p>大きく分けて三つの課題があります。一つ目は「データのノイズと倫理」、二つ目は「アルゴリズムの透明性」、そして三つ目は「異分野間の対話」です。自然科学の実験データとは異なり、社会データは常に欠損や偏りを含んでおり、プライバシーや研究倫理への深い配慮が求められます。数字の背後にある一人ひとりの人生を歪めないよう、データ収集と前処理には細心の注意を払っています。</p>
-        <p>また、LLMをはじめとするAIモデルは、学習データに含まれる社会の偏見を再生産してしまうリスクを孕んでいます。AIを「万能の答え」として盲信するのではなく、社会学的な理論枠組みによってAIの推論プロセスを検証し、解釈可能性を担保することが不可欠です。そして何より、情報科学の技術者と人文・社会科学の研究者とでは「共通言語」が異なります。しかし、この異なる視座がぶつかり合う摩擦こそが、新しい知を生み出す最大のエネルギーになると信じています。</p>
-      </div>
-    </div>
-
-    <div class="qa-block reveal-up">
-      <h3 class="question">これまで公的資金プロジェクトや産学連携を主導されてきましたが、日本の東北大学という環境で研究を行うことにはどのような意義がありますか？</h3>
-      <div class="answer">
-        <p>東北大学で研究できることは、私にとって非常に大きな財産です。日本には世界的に見ても極めて精緻に蓄積された制度データや豊かな文化遺産がある一方で、少子高齢化や組織の硬直化といった先進国ならではの構造的課題がいち早く顕在化しています。この環境に身を置き、当事者としての観察眼と比較社会学的な視座を掛け合わせることで、より深い洞察が得られます。また、東北大学が掲げる「実学尊重」の精神は、「データで社会を理解し、実践的な変革を呼び起こす」という私自身の信念と深く共鳴しています。</p>
-      </div>
-    </div>
-
-    <div class="qa-block reveal-up">
-      <h3 class="question">これから計算社会科学やデジタル・ヒューマニティーズを志す若手研究者へ、アドバイスをお願いします。</h3>
-      <div class="answer">
-        <p>技術的なツールに気後れする必要はありませんし、同時に「ツールの奴隷」にもならないでほしいと思います。最新のAIモデルを追いかけたり、複雑なPythonコードを書くこと自体が目的化してしまうケースは少なくありません。しかし、最も大切なのは「あなた自身が本当に解き明かしたい人間や社会の問いは何か」という熱量です。「この制度のどこに歪みがあるのか」「誰の声が漏れているのか」という切実な問いさえあれば、プログラミングや機械学習は、その答えに辿り着くための最高にエキサイティングな武器になります。</p>
-      </div>
-    </div>
-
-    <div class="qa-block reveal-up">
-      <h3 class="question">最後に、研究室やパソコンから離れた普段の生活では、どのようなことがお好きですか？</h3>
-      <div class="answer">
-        <p>画面の中のデジタルな世界から離れ、五感を使う時間を大切にしています。特にスペシャルティコーヒーを淹れることは毎日の欠かせない習慣です。豆の挽き目や湯温、抽出時間といった無数の変数をコントロールし、最高の一杯を導き出すプロセスは、どこかデータサイエンスの実験にも似ていて心が落ち着きます。あとは、カメラを持って知らない街の路地を歩いたり、美術館や建築を巡ったりしながら、人々が空間の中でどのように息づいているのかを眺めるのが好きですね。</p>
+        <p>私のポスドク研究アジェンダは明確です。第一に、STEM分野における女性研究者のキャリアを、静的な階層分布から動的な縦断プロセスとして捉え直し、昇進や流動性のどの段階でジェンダー差が生じるのかをさらに解明すること[cite: 32]。第二に、科学の科学と研究ガバナンスを結合させ、大規模チームへの参加や科研費の構造が科学的権威へのアクセスにどう影響するかを明らかにすること[cite: 32]。第三に、パブリックディスカッションや信頼・バイアスを対象としたAIと社会の倫理的・計算的研究を推進することです[cite: 32]。</p>
+        <p>データは単なる数字の集積ではありません。それは社会の不平等を映し出し、より公正な制度設計へと導くための最も強力な対話の言語なのです。</p>
       </div>
     </div>
 
     <figure class="editorial-figure">
       <div class="figure-frame">
-        <img src="algorithm.jpg" alt="アルゴリズムとネットワーク可視化">
+        <img src="algorithm.jpg" alt="多層ネットワークとイベントヒストリー分析の可視化">
       </div>
-      <figcaption>写真：裴 榮康（ハイ エイコウ）の研究を支える、多層ネットワーク・トポロジーとLLMデータパイプラインの可視化画面。制度構造と人の移動を精緻に描き出す。</figcaption>
+      <figcaption>Photograph: 裴 榮康の研究を支える、イベントヒストリー分析・多層ネットワークトポロジー・LLMパイプラインの統合アーキテクチャ。</figcaption>
     </figure>
 
     <section class="bio-section reveal-up">
       <div class="bio-label">Researcher Profile</div>
-      <h3>裴 榮康（ハイ エイコウ / Rongkang Pei）</h3>
-      <p>東北大学にて計算人文社会学（Computational Humanities and Sociology）を専攻する博士課程研究者。社会学・人文学の理論的視座と最先端のデータサイエンスを融合させ、人間行動および社会制度のダイナミクスを解明する学際的研究に従事している。Python、機械学習、大規模言語モデル（LLM）、ソーシャルメディア・マイニングおよび高度なデータ可視化技術を駆使し、高等教育における学術キャリアパス・昇進メカニズムとジェンダー不平等、観光ビッグデータ、ならびにGLAM機関（美術館・図書館・文書館・博物館）における知識表現の構造化を主要な研究領域とする。</p>
-      <p>これまで省部級（公的競争的資金）プロジェクトや多数の産学官連携プロジェクトにおいて研究代表者（PI）を務め、日本の学術昇進メカニズムを計算科学的に解明する分析プラットフォームおよび学術キャリア可視化システムを独自に構築。さらに、文化観光企業や公共機関との共創を通じてスマートツーリズム・データ基盤の開発を主導するなど、「AI×文化×社会データ」の社会実装を牽引している。「データは単なるツールではなく、社会を理解し、変革を呼び起こすための言語である」という信念のもと、デジタル技術を通じた公正で豊かな社会の実現を目指している。</p>
+      <h3>裴 榮康（ハイ エイコウ / Rongkang PEI）</h3>
+      <p>東北大学大学院文学研究科計算社会科学・科学の科学（Science of Science）博士課程後期。マルチメディアデザイン学士、デジタルコンテンツ修士、マスコミュニケーション修士を経て現職。約26万人の研究者キャリアとKAKENHIを統合した大規模縦断データベースの構築、イベントヒストリー分析やシーケンス分析を用いた日本のアカデミアにおける昇進・ジェンダー不平等の実証研究で国際的成果を上げる。<em>Scientific Reports</em> や <em>PLOS ONE</em> などに多数の査読付き論文を発表[cite: 31]。東北大学 AGS LEAP Fellow、元 AGS RISE Lead Fellow、JST SPRING研究員[cite: 32]。</p>
       <div class="credit-line">
-        <span>研究のロマンス — The Romance of Research</span>
+        <span>The Romance of Research — Special Feature</span>
         <span>東北大学 / Tohoku University</span>
+      </div>
+    </section>
+  </article>
+</main>
+
+<!-- ==================== 2. 台灣繁體中文版 (繁中 TW) ==================== -->
+<main data-lang="tw">
+  <section class="hero">
+    <div class="hero-image">
+      <img src="portrait.jpg" alt="裴榮康 肖像" class="parallax-hero">
+    </div>
+    <div class="hero-meta">
+      <div class="series-tag reveal-up">研究的浪漫 — The Romance of Research</div>
+      <h1 class="researcher-name reveal-up delay-1">
+        裴 榮康
+        <span style="font-size:1.15rem;font-weight:400;color:var(--muted);display:block;margin-top:8px;letter-spacing:0.04em;">Rongkang PEI</span>
+      </h1>
+      <div class="affiliation reveal-up delay-2">
+        東北大學（Tohoku University）文學研究科 計算社會科學與科學學（Science of Science）博士生<br>
+        AGS RISE / LEAP 博士研究員
+      </div>
+      <dl class="specialty-box reveal-up delay-3">
+        <dt>專業領域</dt>
+        <dd>計算社會科學・科學學（Science of Science）・數位人文</dd>
+        <dt>主な研究テーマ</dt>
+        <dd>
+          <ul>
+            <li>日本學術界的升等時機、學閥與學內升等（Academic Inbreeding）、機構流動性與性別不平等的縱貫性因果分析</li>
+            <li>大規模學術資料整合：結合 researchmap 履歷與 KAKEN/KAKENHI 專案紀錄之約 26 萬名研究者面板資料庫</li>
+            <li>運用 Transformer 與大型語言模型（LLM）進行社會科學與公眾言論之自動化文字與敘事結構分析</li>
+          </ul>
+        </dd>
+      </dl>
+      <h2 class="catchphrase reveal-up delay-4">以大規模縱貫資料，解構科學技術與社會結構</h2>
+      <p class="lead-paragraph reveal-up delay-4">
+        從個體職涯路徑到國家科研治理，透過基於證據的計算方法將結構性不平等視覺化，進而形塑科學與社會的未來。
+      </p>
+      <div class="scroll-cue reveal-up delay-4">
+        <span class="scroll-cue-line"></span>
+        <span>Scroll to Explore</span>
+      </div>
+    </div>
+  </section>
+
+  <article class="article-container">
+    <div class="qa-block reveal-up">
+      <h3 class="question">是什麼契機讓你投入科學學（Science of Science）與計算社會科學的研究？</h3>
+      <div class="answer">
+        <p>我的學術背景橫跨多媒體設計（學士）、數位內容（碩士）、大眾傳播（碩士），到目前在東北大學文學研究科攻讀計算社會科學（博士）[cite: 30]。在跨領域的探索過程中，我深刻體會到「探究人類行為與社會制度的動態，不能只依賴直覺，必須透過嚴謹的大型資料與計算模型來揭示背后的真實機制」。</p>
+        <p>目前我以科學學（Science of Science）與計算社會學為核心，獨力或協同建構了涵蓋約 26 萬名日本研究者職涯與科研補助（KAKENHI）紀錄的巨型縱貫資料庫（Panel Data）[cite: 30]，試圖以資料科學賦能社會科學的經典命題。</p>
+      </div>
+    </div>
+
+    <div class="qa-block reveal-up">
+      <h3 class="question">關於發表於《Scientific Reports》的日本學術升等與性別不平等研究，核心發現在做什麼？</h3>
+      <div class="answer">
+        <p>這項研究（Pei et al., 2026）分析了 74,344 筆 researchmap 學者資料，利用事件史分析（Event-history analysis / 存活分析）實證探討了日本學術界升等時機的性別差異[cite: 30, 31, 32]。我們在控制右側截尾（Right-censored）職涯的前提下，精確描繪出從取得博士學位到副教授、再到正教授的各個轉銜階段中，性別落差究竟在何時、何地浮現[cite: 32]。</p>
+
+        <div class="cv-highlights">
+          <h4>代表性同行評審論文 (Selected Publications)</h4>
+          <ul>
+            <li><strong>Pei, R., et al. (2026).</strong> Gender inequality in academic promotion trajectories in Japan. <em>Scientific Reports</em>[cite: 31].</li>
+            <li><strong>Pei, R., Lyu, Z., & Wang, G. (2026).</strong> Transformer-driven automated analysis of social media narrative structure. <em>PLOS ONE</em>[cite: 31].</li>
+            <li><strong>Pei, R. (2025).</strong> Analysis of research trends in the field of museology: Node2Vec & network modelling. <em>Education Reform and Development</em>[cite: 31].</li>
+          </ul>
+        </div>
+
+        <p>研究不僅止於現象描述，更進一步探討學術內生性（Academic Inbreeding）、機構間流動以及在 KAKENHI 專案中的角色轉換（從非 PI 過渡到首次擔任主任研究員 PI）如何與性別交織並影響長期職涯[cite: 30, 32]。</p>
+      </div>
+    </div>
+
+    <div class="qa-block reveal-up">
+      <h3 class="question">在建構 26 萬人研究者資料庫與「JPResearcher」分析平台時，你採用了哪些關鍵技術？</h3>
+      <div class="answer">
+        <p>這項工作結合了資料工程與社會學理論。我透過 Python 與 SQL 進行大規模資料清洗、實體解析（Record linkage），將 researchmap 的學歷、任職機構、性別、地理資訊與 KAKENHI 的專案預算、團隊組成、成員角色進行縱貫式鏈結，建立「研究者-年」與「研究者-專案-年」面板資料庫[cite: 30]。</p>
+        <p>此外，我在東北大學博士研究期間開發了 **JPResearcher** 網頁分析平台，提供視覺化工具來探索日本學術升等與經費分配[cite: 30]。分析就緒（Analysis-ready）的衍生資料與可重複使用的分析管線已透過 Harvard Dataverse（DOI: 10.7910/DVN/ZJXZEC）公開釋出，實踐開放科學[cite: 30]。</p>
+      </div>
+    </div>
+
+    <figure class="editorial-figure">
+      <div class="figure-frame">
+        <img src="scene.jpg" alt="東北大學研究室中的計算社會科學研究">
+      </div>
+      <figcaption>資料與社會拓撲 (A Researcher in Sendai #1024), 2026. 於東北大學研究室中進行大規模縱貫資料庫建構與機器學習模型運算。</figcaption>
+    </figure>
+
+    <div class="qa-block reveal-up">
+      <h3 class="question">你曾多次獲得日本 JSPS 專案、JST SPRING 以及東北大學 AGS RISE/LEAP 頂尖計畫的資助，這些經歷帶來什麼啟發？</h3>
+      <div class="answer">
+        <p>我很榮幸能獲得多項國家級與校級頂尖計畫的支持。例如擔任 JSPS 科研費（挑戰的研究・公募：大數據社會秩序計算理論）的研究參與者[cite: 32]，以及連續入選東北大學 AGS RISE 計畫（領導博士研究員）與 AGS LEAP Program 博士生代表[cite: 32]，並曾獲日本科學技術振興機構（JST SPRING）博士獎學金資助[cite: 32]。這些資源讓我得以無後顧之憂地投入跨國、跨學門的網路輿論擴散與科學學前沿探索。</p>
+
+        <div class="cv-highlights">
+          <h4>重大研究資助與博士獎學金 (Research Fellowships & Grants)</h4>
+          <ul>
+            <li><strong>Tohoku University AGS LEAP Program Doctoral Fellow</strong> (2026–Present)[cite: 32].</li>
+            <li><strong>AGS RISE Program Lead Doctoral Fellow</strong> (2025–2026, JPMJFS22102)[cite: 32].</li>
+            <li><strong>JST SPRING Doctoral Research Fellow</strong> (2024–2025, JPMJSP2114)[cite: 32].</li>
+            <li><strong>JSPS KAKENHI Challenging Research (Exploratory)</strong> — Research Participant (2024–2026, JP24K21436)[cite: 32].</li>
+          </ul>
+        </div>
+      </div>
+    </div>
+
+    <div class="qa-block reveal-up">
+      <h3 class="question">你未來的博士後研究議程（Postdoctoral Research Agenda）有哪些核心規劃？</h3>
+      <div class="answer">
+        <p>我的博士後研究規劃聚焦於三個方向：第一，將 STEM 領域中女性研究者的研究從靜態的階層分佈推進至動態的職涯過程，精準定位性別落差產生的關鍵節點[cite: 32]；第二，將科學社會學與科研治理相結合，探討正式專案角色、大團隊參與及經費結構如何影響科學權威的取得[cite: 32]；第三，發展合乎倫理的 AI 與社會計算方法，跨國比較公眾論言、信任與負責任創新[cite: 32]。</p>
+        <p>資料不僅僅是工具，它是一種能夠引導制度改革、喚起社會正義的語言。</p>
+      </div>
+    </div>
+
+    <figure class="editorial-figure">
+      <div class="figure-frame">
+        <img src="algorithm.jpg" alt="計算社會科學與網絡拓撲視覺化">
+      </div>
+      <figcaption>Photograph: 支撐裴榮康計算社會科學研究的事件史分析、多層網絡拓撲與 LLM 資料處理管線（Data Pipelines）。</figcaption>
+    </figure>
+
+    <section class="bio-section reveal-up">
+      <div class="bio-label">Researcher Profile</div>
+      <h3>裴 榮康（Rongkang PEI）</h3>
+      <p>東北大學（Tohoku University）文學研究科計算人文與社會學博士生。學術背景涵蓋多媒體設計學士、數位內容碩士、大眾傳播碩士。專精於科學學（Science of Science）、計算社會科學、大規模縱貫資料庫建構、事件史與網絡分析。代表性研究發表於 <em>Scientific Reports</em> 與 <em>PLOS ONE</em> 等國際頂尖期刊[cite: 31]。現為東北大學 AGS LEAP Fellow、前 AGS RISE Lead Fellow 及 JST SPRING 博士研究員[cite: 32]。致力於運用資料科學解構學術勞動市場與科學治理機制。</p>
+      <div class="credit-line">
+        <span>研究的浪漫 — The Romance of Research</span>
+        <span>東北大學 / Tohoku University</span>
       </div>
     </section>
   </article>
@@ -610,31 +570,30 @@
 <main data-lang="en">
   <section class="hero">
     <div class="hero-image">
-      <img src="portrait.jpg" alt="Rongkang Pei Portrait" class="parallax-hero">
+      <img src="portrait.jpg" alt="Rongkang PEI Portrait" class="parallax-hero">
     </div>
     <div class="hero-meta">
       <div class="series-tag reveal-up">The Romance of Research</div>
-      <h1 class="researcher-name reveal-up delay-1">Rongkang Pei</h1>
+      <h1 class="researcher-name reveal-up delay-1">Rongkang PEI</h1>
       <div class="affiliation reveal-up delay-2">
-        Doctoral Researcher in Computational Humanities and Sociology,<br>
+        Doctoral Researcher in Computational Sociology and Science of Science,<br>
         Graduate School of Arts and Letters, Tohoku University
       </div>
       <dl class="specialty-box reveal-up delay-3">
         <dt>Field of Specialty</dt>
-        <dd>Computational Social Science &amp; Digital Humanities</dd>
+        <dd>Computational Social Science &amp; Science of Science &amp; Digital Humanities</dd>
         <dt>Specific Topics</dt>
         <dd>
           <ul>
-            <li>Academic career trajectories, promotion mechanisms, and gender inequality</li>
-            <li>Large Language Models (LLMs) and machine learning for social inquiry</li>
-            <li>Tourism big data and spatial-temporal human mobility</li>
-            <li>Knowledge representation in GLAM (Galleries, Libraries, Archives, and Museums) institutions</li>
+            <li>Longitudinal causal analysis of academic promotion timelines, academic inbreeding, and gender inequality in Japan</li>
+            <li>Large-scale research data integration: Linking researchmap profiles with KAKEN/KAKENHI grants for ~260,000 scholars</li>
+            <li>Transformer-driven automated text and narrative structure analysis using Large Language Models (LLMs)</li>
           </ul>
         </dd>
       </dl>
-      <h2 class="catchphrase reveal-up delay-4">Decoding Society, One Dataset at a Time</h2>
+      <h2 class="catchphrase reveal-up delay-4">Unraveling Science and Society Through Large-Scale Longitudinal Data</h2>
       <p class="lead-paragraph reveal-up delay-4">
-        Behind every institutional policy, cultural shift, and career milestone lies a complex web of human stories. By weaving computational methods into the fabric of sociology and the humanities, we can make invisible structural inequalities visible—and turn raw data into a catalyst for social change.
+        From individual career trajectories to national research governance, leveraging evidence-based computational methods to visualize structural inequality and shape the future of science and society.
       </p>
       <div class="scroll-cue reveal-up delay-4">
         <span class="scroll-cue-line"></span>
@@ -645,86 +604,82 @@
 
   <article class="article-container">
     <div class="qa-block reveal-up">
-      <h3 class="question">What sparked your interest in combining computational methods with sociology and the humanities?</h3>
+      <h3 class="question">What sparked your journey into the Science of Science and Computational Social Science?</h3>
       <div class="answer">
-        <p>The answer lies in a fundamental desire to see the whole picture without losing sight of the individual. Traditional qualitative sociology offers deep, empathetic insights into human behavior, but it often struggles to capture macro-level structural patterns across decades or entire nations. Conversely, pure data science excels at processing massive scale, yet sometimes treats human beings as mere statistical noise.</p>
-        <p>I realized early on that if we embed computational methodologies—like machine learning and network analysis—deeply into the social sciences, we don't erase the human element; we illuminate it. Data is not cold. When framed with sociological imagination, data becomes the most honest medium for telling real stories about real people and the institutions that shape their lives.</p>
+        <p>My academic background spans Multimedia Design (B.Des.), Digital Content and Technologies (M.S.), Mass Communication (M.A.), and now Computational Humanities and Social Sciences (Ph.D.) at Tohoku University[cite: 30]. Navigating these diverse disciplines instilled in me a core conviction: understanding human behavior and institutional dynamics requires rigorous large-scale data and computational models rather than intuition alone.</p>
+        <p>Currently focusing on the Science of Science and computational sociology, I have independently and collaboratively constructed a massive longitudinal panel database linking career histories and KAKENHI funding records for approximately 260,000 researchers in Japan[cite: 30], empowering social science with data science.</p>
       </div>
     </div>
 
     <div class="qa-block reveal-up">
-      <h3 class="question">A major pillar of your research examines academic career trajectories and gender disparities in Japan. Why is this issue so critical for society?</h3>
+      <h3 class="question">Could you elaborate on your research published in <em>Scientific Reports</em> regarding gender disparities in Japanese academia?</h3>
       <div class="answer">
-        <p>Universities and research institutes are the engines of human progress, yet the internal mechanisms governing how scholars are hired, funded, and promoted often remain a black box. When structural barriers—such as institutional prestige hierarchies, academic inbreeding, or implicit gender biases—hinder talented researchers, society as a whole loses out on groundbreaking ideas.</p>
-        <p>By constructing a large-scale computational analysis platform tailored to Japan's academic promotion system, my work traces the long-term career sequences of tens of thousands of scholars. We look at how research grants, institutional mobility, and publication networks intersect with gender. Making these invisible bottlenecks quantifiable and visually transparent is the first step toward building a fairer, more inclusive, and more vibrant academic ecosystem.</p>
+        <p>This study (Pei et al., 2026) analyzes 74,344 researchmap profiles, empirically examining gender disparities in promotion timelines across Japanese higher education using event-history (survival) analysis[cite: 30, 31, 32]. Accounting for right-censored careers, we precisely identified when and where gender gaps emerge during transitions from PhD to associate professor and full professor[cite: 32].</p>
+
+        <div class="cv-highlights">
+          <h4>Selected Peer-Reviewed Publications</h4>
+          <ul>
+            <li><strong>Pei, R., et al. (2026).</strong> Gender inequality in academic promotion trajectories in Japan. <em>Scientific Reports</em>[cite: 31].</li>
+            <li><strong>Pei, R., Lyu, Z., & Wang, G. (2026).</strong> Transformer-driven automated analysis of social media narrative structure. <em>PLOS ONE</em>[cite: 31].</li>
+            <li><strong>Pei, R. (2025).</strong> Analysis of research trends in the field of museology: Node2Vec & network modelling. <em>Education Reform and Development</em>[cite: 31].</li>
+          </ul>
+        </div>
+
+        <p>Beyond descriptive statistics, the study evaluates how academic inbreeding, institutional mobility, and formal roles in KAKENHI projects (transitioning from non-PI to first-time PI) intersect with gender[cite: 30, 32].</p>
       </div>
     </div>
 
     <div class="qa-block reveal-up">
-      <h3 class="question">Beyond academia, you also work extensively with tourism big data and GLAM (Galleries, Libraries, Archives, and Museums) institutions. How do Large Language Models (LLMs) and AI tie these diverse areas together?</h3>
+      <h3 class="question">What technical approaches did you employ in building the 260,000-researcher database and the "JPResearcher" platform?</h3>
       <div class="answer">
-        <p>At their core, all of these domains—whether it is a scholar navigating a university system, a traveler exploring a cultural heritage site, or a museum curating historical archives—are about how humans interact with knowledge, space, and institutions.</p>
-        <p>Historically, extracting structured meaning from millions of social media posts, archival records, or unstructured institutional documents was prohibitively slow. Today, Large Language Models (LLMs) and automated data pipelines allow us to bridge unstructured human expression and rigorous quantitative analysis. In our GLAM and smart tourism projects, we use Python-based machine learning and generative AI to map how cultural knowledge is represented and experienced by the public. AI acts as a translator, helping cultural institutions understand public engagement in real time while preserving the nuance of cultural heritage.</p>
+        <p>This work merges data engineering with sociological theory. Using Python and SQL, I perform large-scale data cleaning and record linkage, integrating career histories, institutional affiliations, gender, geographic data, and KAKENHI budgets, team structures, and formal roles into researcher-year and researcher-project-year panels[cite: 30].</p>
+        <p>Additionally, I developed **JPResearcher** as part of my doctoral research at Tohoku University, providing a web-based platform to visualize Japanese academic promotions and funding allocations[cite: 30]. Analysis-ready derived data and reproducible analytical pipelines have been openly released via Harvard Dataverse (DOI: 10.7910/DVN/ZJXZEC) in support of open science[cite: 30].</p>
       </div>
     </div>
 
     <figure class="editorial-figure">
       <div class="figure-frame">
-        <img src="scene.jpg" alt="Rongkang Pei in Research Lab at Tohoku University">
+        <img src="scene.jpg" alt="Computational Sociology Research Lab at Tohoku University">
       </div>
-      <figcaption>Untitled (A Researcher in Sendai #1024), 2026. Visualizing trajectories of academic mobility and institutional networks at Tohoku University.</figcaption>
+      <figcaption>Data & Society Topology (A Researcher in Sendai #1024), 2026. Conducting computational modeling on large-scale longitudinal panel data in the research lab at Tohoku University.</figcaption>
     </figure>
 
     <div class="qa-block reveal-up">
-      <h3 class="question">Is that vision what led you to build your computational platforms and co-create systems with industry and public partners?</h3>
+      <h3 class="question">You have been awarded prestigious fellowships such as JSPS KAKENHI grants, JST SPRING, and Tohoku University AGS RISE/LEAP programs. How have these shaped your research?</h3>
       <div class="answer">
-        <p>Exactly. I have always believed that social science research should not stay locked inside academic journals. When I started building the computational platform for analyzing Japanese academic careers, or co-developing smart tourism data platforms with cultural enterprises and public agencies, my goal was accessibility.</p>
-        <p>A complex regression model or a multi-million-node graph means very little to a policymaker or a museum director unless they can see and interact with it. That is why data visualization is central to my workflow. By transforming massive, messy datasets into intuitive visual interfaces, we empower administrators, industry partners, and citizens to discover insights on their own. It turns static research into a living dialogue between AI, culture, and society.</p>
+        <p>I am deeply honored to receive support from national and university-level initiatives. I have served as a research participant in JSPS KAKENHI Challenging Research[cite: 32], selected as a doctoral participant in Tohoku University's AGS LEAP Program[cite: 32], lead doctoral fellow for the AGS RISE Program[cite: 32], and received fellowship support from JST SPRING[cite: 32]. These grants have enabled me to drive frontier inquiries into social media opinion diffusion and science of science.</p>
+
+        <div class="cv-highlights">
+          <h4>Research Fellowships & Grants</h4>
+          <ul>
+            <li><strong>Tohoku University AGS LEAP Program Doctoral Fellow</strong> (2026–Present)[cite: 32].</li>
+            <li><strong>AGS RISE Program Lead Doctoral Fellow</strong> (2025–2026, JPMJFS22102)[cite: 32].</li>
+            <li><strong>JST SPRING Doctoral Research Fellow</strong> (2024–2025, JPMJSP2114)[cite: 32].</li>
+            <li><strong>JSPS KAKENHI Challenging Research (Exploratory)</strong> — Research Participant (2024–2026, JP24K21436)[cite: 32].</li>
+          </ul>
+        </div>
       </div>
     </div>
 
     <div class="qa-block reveal-up">
-      <h3 class="question">What are the biggest challenges you face when working at the intersection of AI and the social sciences?</h3>
+      <h3 class="question">What are the core pillars of your Postdoctoral Research Agenda?</h3>
       <div class="answer">
-        <p>Three main challenges stand out: data ethics and noise, algorithmic bias, and disciplinary translation. First, unlike laboratory data in the natural sciences, social data is inherently messy, incomplete, and deeply intertwined with privacy and ethical considerations. Cleaning and structuring large-scale social media or career tracking data requires immense care so that we do not distort the lived realities behind the numbers.</p>
-        <p>Second, LLMs and machine learning models can inadvertently replicate or amplify existing societal biases. We cannot treat AI as an infallible oracle; we must build transparent, interpretable workflows where sociological theory guides the algorithm, not the other way around.</p>
-        <p>Finally, bridging the divide between computer scientists and humanities scholars takes constant effort. We speak different methodological languages. Yet, I view this friction as creative energy—when you successfully align technical precision with humanistic empathy, the resulting insights are extraordinary.</p>
-      </div>
-    </div>
-
-    <div class="qa-block reveal-up">
-      <h3 class="question">Having led provincial-level grants and industry-academia collaborations across different cultural contexts, how has conducting research at Tohoku University in Japan shaped your perspective?</h3>
-      <div class="answer">
-        <p>Researching at Tohoku University provides a remarkable vantage point. Japan possesses some of the most meticulously maintained institutional archives and richest cultural landscapes in the world, alongside unique demographic and structural challenges. Being immersed in this environment allows me to observe institutional dynamics up close while applying a comparative, cross-cultural lens. Moreover, Tohoku University's deep commitment to <em>"Jitsugaku"</em> (practical learning that benefits society) resonates strongly with my own philosophy: that computational research should ultimately serve real-world institutional reform and cultural vitality.</p>
-      </div>
-    </div>
-
-    <div class="qa-block reveal-up">
-      <h3 class="question">Do you have any advice for young researchers looking to enter computational social science or digital humanities?</h3>
-      <div class="answer">
-        <p>Don't let the technical tools intimidate you, and equally, never let the tools become your master. It is easy to get caught up in chasing the newest AI model or writing complex Python scripts just for the sake of technical sophistication. Always start with a compelling human question. Ask yourself: <em>Who does this affect? What institutional truth is hidden here?</em> Once you have a question you genuinely care about, learning the programming, machine learning, and visualization skills becomes an exciting puzzle rather than a chore.</p>
-      </div>
-    </div>
-
-    <div class="qa-block reveal-up">
-      <h3 class="question">Lastly, outside of coding and research, how do you spend your time?</h3>
-      <div class="answer">
-        <p>When I step away from the terminal, I enjoy slowing down and engaging with the sensory world. Brewing specialty coffee is a daily ritual for me—much like data science, dialing in the perfect espresso or pour-over is a delicate balance of variables, precision, and intuition. I also love traveling through local neighborhoods, visiting museums and architectural spaces, and observing how people naturally inhabit and move through cities.</p>
+        <p>My postdoctoral agenda focuses on three main pillars: first, extending research on women in STEM from static rank distributions to longitudinal career processes, identifying precise junctures where gender gaps emerge[cite: 32]; second, connecting the sociology of science with research governance to examine how formal project roles and funding structures shape access to scientific authority[cite: 32]; and third, developing ethically grounded computational approaches to AI and society, including comparative studies on public discourse, trust, and responsible innovation[cite: 32].</p>
+        <p>Data is not merely a technical tool; it is a vital language for driving institutional reform and inspiring meaningful societal change.</p>
       </div>
     </div>
 
     <figure class="editorial-figure">
       <div class="figure-frame">
-        <img src="algorithm.jpg" alt="Computational Social Science Network Visualization">
+        <img src="algorithm.jpg" alt="Computational Network Topologies and Pipeline Visualization">
       </div>
-      <figcaption>Photograph: Multi-layered network topologies and LLM-driven data pipelines mapping institutional structures and human mobility in Rongkang Pei’s research.</figcaption>
+      <figcaption>Photograph: Event-history analysis models, multi-layered network topologies, and LLM-driven data pipelines supporting Rongkang PEI’s research.</figcaption>
     </figure>
 
     <section class="bio-section reveal-up">
       <div class="bio-label">Researcher Profile</div>
-      <h3>Rongkang Pei</h3>
-      <p>Rongkang Pei is a doctoral researcher in Computational Humanities and Sociology at Tohoku University, where he investigates the intersection of computational social science, generative artificial intelligence, and institutional dynamics. Bridging sociological inquiry with advanced data science, Pei's research utilizes Python, machine learning, Large Language Models (LLMs), and large-scale data visualization to uncover the structural mechanisms governing human behavior and institutional inequality. His core academic work focuses on modeling academic career trajectories, research funding ecosystems, and gender disparities within higher education, alongside empirical studies in tourism big data and knowledge representation across GLAM (Galleries, Libraries, Archives, and Museums) institutions.</p>
-      <p>Committed to translating computational insights into real-world impact, Pei has served as Principal Investigator for provincial/ministerial-level research grants and led numerous industry-academia collaborative projects. He spearheaded the development of a computational analysis and visualization platform for Japanese academic promotion mechanisms, providing data-driven transparency into scholarly mobility. Beyond academia, he actively collaborates with cultural tourism enterprises and public sector agencies to co-create smart tourism data platforms and interactive knowledge systems, advancing the integration of AI, cultural heritage, and social data under the conviction that data is a vital language for understanding society and inspiring meaningful change.</p>
+      <h3>Rongkang PEI</h3>
+      <p>Rongkang PEI is a doctoral researcher in Computational Sociology and Science of Science at Tohoku University. Holding degrees in Multimedia Design (B.Des.), Digital Content and Technologies (M.S.), and Mass Communication (M.A.), his research specializes in the Science of Science, computational social science, large longitudinal database construction, and event-history modeling. His peer-reviewed work is published in <em>Scientific Reports</em> and <em>PLOS ONE</em>[cite: 31]. He serves as a Tohoku University AGS LEAP Fellow, former AGS RISE Lead Fellow, and JST SPRING Research Fellow[cite: 32]. He is dedicated to dismantling structural inequalities in academic labor markets through data science.</p>
       <div class="credit-line">
         <span>The Romance of Research — Special Feature</span>
         <span>Tohoku University</span>
@@ -741,27 +696,29 @@
     </div>
     <div class="hero-meta">
       <div class="series-tag reveal-up">研究的浪漫 — The Romance of Research</div>
-      <h1 class="researcher-name reveal-up delay-1">裴荣康 <span style="font-size:1.35rem;font-weight:400;color:var(--muted);">（Rongkang Pei）</span></h1>
+      <h1 class="researcher-name reveal-up delay-1">
+        裴荣康
+        <span style="font-size:1.15rem;font-weight:400;color:var(--muted);display:block;margin-top:8px;letter-spacing:0.04em;">Rongkang PEI</span>
+      </h1>
       <div class="affiliation reveal-up delay-2">
-        东北大学（Tohoku University）文学研究科<br>
-        计算人文与社会学 博士生
+        东北大学（Tohoku University）文学研究科计算社会科学与科学学（Science of Science）博士生<br>
+        AGS RISE / LEAP 博士研究员
       </div>
       <dl class="specialty-box reveal-up delay-3">
         <dt>专业领域</dt>
-        <dd>计算社会科学 · 数字人文（Computational Humanities &amp; Sociology）</dd>
+        <dd>计算社会科学 · 科学学（Science of Science）· 数字人文</dd>
         <dt>研究与教学领域</dt>
         <dd>
           <ul>
-            <li>学术晋升路径、科研制度机制与性别不平等</li>
-            <li>生成式人工智能（LLM）、机器学习与大规模社会数据处理</li>
-            <li>旅游大数据、社交媒体采集与时空人类移动行为</li>
-            <li>GLAM 机构（美术馆、图书馆、档案馆、博物馆）知识呈现与数据可视化</li>
+            <li>日本学术界晋升时机、学阀与学内晋升（Academic Inbreeding）、机构流动性与性别不平等的纵贯因果分析</li>
+            <li>大规模学术数据整合：结合 researchmap 简历与 KAKEN/KAKENHI 项目记录的约 26 万名研究员面板数据库</li>
+            <li>运用 Transformer 与大语言模型（LLM）进行社会科学与公众言论的自动化文本与叙事结构分析</li>
           </ul>
         </dd>
       </dl>
-      <h2 class="catchphrase reveal-up delay-4">以数据为语言，讲述真实的人与制度</h2>
+      <h2 class="catchphrase reveal-up delay-4">以大规模纵贯数据，解构科学技术与社会结构</h2>
       <p class="lead-paragraph reveal-up delay-4">
-        在每一项制度设计、每一次文化流变与每一段职业生涯的背后，都交织着无数真实个体的命运与抉择。将计算方法深度融入社会科学与人文学，让隐形的制度壁垒得以被看见——数据不仅是工具，它是一种理解社会、唤起改变的语言。
+        从个体职业生涯路径到国家科研治理，通过基于证据的计算方法将结构性不平等可视化，进而塑造科学与社会的未来。
       </p>
       <div class="scroll-cue reveal-up delay-4">
         <span class="scroll-cue-line"></span>
@@ -772,79 +729,98 @@
 
   <article class="article-container">
     <div class="qa-block reveal-up">
-      <h3 class="question">是什么契机激发了你将计算方法与社会学、人文学深度融合？</h3>
+      <h3 class="question">是什么契机让你投入科学学（Science of Science）与计算社会科学的研究？</h3>
       <div class="answer">
-        <p>源于我希望在“看见森林”的同时，依然能够“看清每一棵树”。传统的质性社会学能够对个体经验提供极具共情的深刻洞察，但往往难以跨越数十年时间维度或全国尺度去捕捉宏观制度结构；反过来，纯粹的数据科学擅长处理海量规模，却有时容易把鲜活的人简化为冰冷的统计噪点。</p>
-        <p>我很早就意识到，如果将机器学习、复杂网络分析等计算方法深度植根于社会科学的问题意识之中，我们不仅不会抹去人的温度，反而能照亮那些被制度遮蔽的真实人生。数据从来不是冰冷的——当它与社会学的想象力结合时，数据就是讲述真实的人与制度最诚实的媒介。</p>
+        <p>我的学术背景横跨多媒体设计（学士）、数字内容（硕士）、大众传播（硕士），到目前在东北大学文学研究科攻读计算社会科学（博士）[cite: 30]。在跨领域的探索过程中，我深刻体会到“探究人类行为与社会制度的动态，不能只依赖直觉，必须通过严谨的大型数据与计算模型来揭示背后的真实机制”。</p>
+        <p>目前我以科学学（Science of Science）与计算社会学为核心，独力或协同构建了涵盖约 26 万名日本研究员职业生涯与科研补助（KAKENHI）记录的巨型纵贯数据库（Panel Data）[cite: 30]，试图以数据科学赋能社会科学的经典命题。</p>
       </div>
     </div>
 
     <div class="qa-block reveal-up">
-      <h3 class="question">你的核心研究之一聚焦于日本学术晋升路径与性别不平等。为什么这一议题对社会如此重要？</h3>
+      <h3 class="question">关于发表于《Scientific Reports》的日本学术晋升与性别不平等研究，核心发现在做什么？</h3>
       <div class="answer">
-        <p>大学与科研机构是人类知识创新与社会进步的引擎，但学者如何被聘用、如何获得科研经费、又如何实现职称晋升，其内部机制在很大程度上仍是一个“黑箱”。当学缘壁垒（学术近亲繁殖）、机构声望阶层或隐性的性别偏见阻碍了优秀学者的发展时，整个社会都会因此错失本可诞生的突破性思想。</p>
-        <p>通过构建“日本学术晋升机制计算分析平台”，我的研究追踪了数以万计学者的长期职业生涯序列，量化剖析科研资助、机构流动与合著网络如何与性别因素交织。把这些看不见的结构性瓶颈转化为可量化、可视化的透明图景，是推动建立更公平、更具包容性的学术生态系统的第一步。</p>
+        <p>这项研究（Pei et al., 2026）分析了 74,344 笔 researchmap 学者数据，利用事件史分析（Event-history analysis / 存活分析）实证探讨了日本学术界晋升时机的性别差异[cite: 30, 31, 32]。我们在控制右侧截尾（Right-censored）职业生涯的前提下，精确描绘出从取得博士学位到副教授、再到正教授的各个转衔阶段中，性别落差究竟在何时、何地浮现[cite: 32]。</p>
+
+        <div class="cv-highlights">
+          <h4>代表性同行评议论文 (Selected Publications)</h4>
+          <ul>
+            <li><strong>Pei, R., et al. (2026).</strong> Gender inequality in academic promotion trajectories in Japan. <em>Scientific Reports</em>[cite: 31].</li>
+            <li><strong>Pei, R., Lyu, Z., & Wang, G. (2026).</strong> Transformer-driven automated analysis of social media narrative structure. <em>PLOS ONE</em>[cite: 31].</li>
+            <li><strong>Pei, R. (2025).</strong> Analysis of research trends in the field of museology: Node2Vec & network modelling. <em>Education Reform and Development</em>[cite: 31].</li>
+          </ul>
+        </div>
+
+        <p>研究不仅止于现象描述，更进一步探讨学术内生性（Academic Inbreeding）、机构间流动以及在 KAKENHI 项目中的角色转换（从非 PI 过渡到首次担任主任研究员 PI）如何与性别交织并影响长期职业生涯[cite: 30, 32]。</p>
       </div>
     </div>
 
     <div class="qa-block reveal-up">
-      <h3 class="question">除了高等教育与学术劳动力市场，你还广泛涉足旅游大数据与 GLAM 机构的知识呈现。生成式 AI 与大语言模型（LLM）是如何将这些领域串联起来的？</h3>
+      <h3 class="question">在构建 26 万人研究员数据库与“JPResearcher”分析平台时，你采用了哪些关键技术？</h3>
       <div class="answer">
-        <p>从本质上讲，无论是一位在高校体制中探索职业路径的学者、一位在文化遗产地游历的旅客，还是一座策划历史档案展览的博物馆，它们的核心问题都是一致的：人类如何与知识、空间以及社会制度发生互动。</p>
-        <p>过去，从数百万条社交媒体帖子、历史馆藏档案或非结构化制度文本中提取结构化意义，往往耗费巨大。如今，借助 Python 机器学习、大规模数据处理管线与大语言模型（LLM），我们得以在非结构化的人类表达与严谨的定量分析之间架起桥梁。在与文化旅游企业及公共机构的合作实践中，我们利用生成式 AI 绘制文化知识如何被公众感知与再现的图谱，让技术成为连接文化遗产与公众体验的翻译官。</p>
+        <p>这项工作结合了数据工程与社会学理论。我通过 Python 与 SQL 进行大规模数据清洗、实体解析（Record linkage），将 researchmap 的学历、任职机构、性别、地理信息与 KAKENHI 的项目预算、团队组成、成员角色进行纵贯式链接，建立“研究员-年”与“研究员-项目-年”面板数据库[cite: 30]。</p>
+        <p>此外，我在东北大学博士研究期间开发了 **JPResearcher** 网页分析平台，提供可视化工具来探索日本学术晋升与经费分配[cite: 30]。分析就绪（Analysis-ready）的衍生数据与可重复使用的分析管线已通过 Harvard Dataverse（DOI: 10.7910/DVN/ZJXZEC）公开释放，实践开放科学[cite: 30]。</p>
       </div>
     </div>
 
     <figure class="editorial-figure">
       <div class="figure-frame">
-        <img src="scene.jpg" alt="裴荣康在东北大学研究室">
+        <img src="scene.jpg" alt="东北大学研究室中的计算社会科学研究">
       </div>
-      <figcaption>Untitled (A Researcher in Sendai #1024), 2026. 在东北大学研究室中对学术职业流动轨迹与制度网络进行计算建模与可视化。</figcaption>
+      <figcaption>科学传播与数据科学 (A Researcher in Sendai #1024), 2026. 于东北大学研究室中进行大规模纵贯数据库构建与机器学习模型运算。</figcaption>
     </figure>
 
     <div class="qa-block reveal-up">
-      <h3 class="question">这也正是你主持省部级及产学合作项目、与企业和公共机构共创数据平台的初衷吗？</h3>
+      <h3 class="question">你曾多次获得日本 JSPS 项目、JST SPRING 以及东北大学 AGS RISE/LEAP 顶尖计划的资助，这些经历带来什么启发？</h3>
       <div class="answer">
-        <p>完全正确。我始终认为，社会科学的研究成果不应当仅仅停留在学术期刊的纸面上。无论是构建日本学术晋升机制计算分析平台，还是与文旅企业、公共部门共创“智慧旅游数据平台”与“学术生涯可视化系统”，我最核心的目标都是“可触达性”。</p>
-        <p>一个再精妙的回归模型或拥有数百万节点的网络图，如果政策制定者、博物馆策展人或普通公众无法直观理解并与之交互，它就很难真正产生社会价值。因此，数据可视化在我的技术工作流中占据着核心地位。通过将庞杂的数据转化为直观的交互系统，我们全力推动“AI × 文化 × 社会数据”的跨界融合，让静态的研究变成一场持续发生的社会对话。</p>
+        <p>我很荣幸能获得多项国家级与校级顶尖计划的支持。例如担任 JSPS 科研费（挑战的研究・公募：大数据社会秩序计算理论）的研究参与者[cite: 32]，以及连续入选东北大学 AGS RISE 计划（领导博士研究员）与 AGS LEAP Program 博士生代表[cite: 32]，并曾获日本科学技术振兴机构（JST SPRING）博士奖学金资助[cite: 32]。这些资源让我得以无后顾之忧地投入跨国、跨学门的网络舆论扩散与科学学前沿探索。</p>
+
+        <div class="cv-highlights">
+          <h4>重大研究资助与博士奖学金 (Research Fellowships & Grants)</h4>
+          <ul>
+            <li><strong>Tohoku University AGS LEAP Program Doctoral Fellow</strong> (2026–Present)[cite: 32].</li>
+            <li><strong>AGS RISE Program Lead Doctoral Fellow</strong> (2025–2026, JPMJFS22102)[cite: 32].</li>
+            <li><strong>JST SPRING Doctoral Research Fellow</strong> (2024–2025, JPMJSP2114)[cite: 32].</li>
+            <li><strong>JSPS KAKENHI Challenging Research (Exploratory)</strong> — Research Participant (2024–2026, JP24K21436)[cite: 32].</li>
+          </ul>
+        </div>
       </div>
     </div>
 
     <div class="qa-block reveal-up">
-      <h3 class="question">在研究与编码之外，你平时有哪些个人爱好？</h3>
+      <h3 class="question">你未来的博士后研究议程（Postdoctoral Research Agenda）有哪些核心规划？</h3>
       <div class="answer">
-        <p>离开代码终端的时候，我喜欢慢下来去感受真实可触的感官世界。手冲与意式精品咖啡是我每天雷打不动的仪式——某种程度上，萃取一杯好咖啡与数据科学非常相似，都需要在研磨度、水温、流速等无数变量的精密控制与直觉之间寻找完美平衡。此外，我也喜欢带着相机穿行于不同城市的街巷，探访美术馆与历史建筑，在旅途中观察人们如何在日常空间中自然地生活与流动。</p>
+        <p>我的博士后研究规划聚焦于三个方向：第一，将 STEM 领域中女性研究员的研究从静态的阶层分布推进至动态的职业生涯过程，精准定位性别落差产生的关键节点[cite: 32]；第二，将科学社会学与科研治理相结合，探讨正式项目角色、大团队参与及经费结构如何影响科学权威的取得[cite: 32]；第三，发展合乎伦理的 AI 与社会计算方法，跨国比较公众言论、信任与负责任创新[cite: 32]。</p>
+        <p>数据不仅仅是工具，它是一种能够引导制度改革、唤起社会正义的语言。</p>
       </div>
     </div>
 
     <figure class="editorial-figure">
       <div class="figure-frame">
-        <img src="algorithm.jpg" alt="算法与多维网络拓扑可视化">
+        <img src="algorithm.jpg" alt="计算社会科学与网络拓扑可视化">
       </div>
-      <figcaption>摄影：支撑裴荣康计算社会科学研究的底层多层网络拓扑模型与 LLM 大规模数据处理流水线。</figcaption>
+      <figcaption>Photograph: 支撑裴荣康计算社会科学研究的事件史分析、多层网络拓扑与 LLM 数据处理管线（Data Pipelines）。</figcaption>
     </figure>
 
     <section class="bio-section reveal-up">
       <div class="bio-label">Researcher Profile</div>
-      <h3>裴荣康（Rongkang Pei）</h3>
-      <p>东北大学（Tohoku University）计算人文与社会学博士研究生。致力于将计算方法深度融入社会科学，运用数据讲述真实的人与制度。其研究与教学横跨旅游大数据、生成式人工智能、学术晋升路径与性别不平等、以及 GLAM 机构（美术馆、图书馆、档案馆、博物馆）知识呈现等交叉领域，擅长运用 Python、机器学习、数据可视化、社交媒体采集、大语言模型（LLM）与大规模数据处理技术揭示宏观制度结构与微观个体行为之间的互动机制。</p>
-      <p>在学术探索与社会实践方面，裴荣康主持多项省部级课题及产学合作项目，主导构建了“日本学术晋升机制计算分析平台”；同时积极携手文化旅游企业及公共机构，共创智慧旅游数据平台与学术生涯可视化系统，深度推动“AI × 文化 × 社会数据”的融合创新。他始终秉持这一信念：“数据不仅是工具，它是一种理解社会、唤起改变的语言。”</p>
+      <h3>裴荣康（Rongkang PEI）</h3>
+      <p>东北大学（Tohoku University）文学研究科计算社会科学与科学学（Science of Science）博士生。学术背景涵盖多媒体设计学士、数字内容硕士、大众传播硕士。专精于科学学、计算社会科学、大规模纵贯数据库构建、事件史与网络分析。代表性研究发表于 <em>Scientific Reports</em> 与 <em>PLOS ONE</em> 等国际顶尖期刊[cite: 31]。现为东北大学 AGS LEAP Fellow、前 AGS RISE Lead Fellow 及 JST SPRING 博士研究员[cite: 32]。致力于运用数据科学解构学术劳动市场与科学治理机制。</p>
       <div class="credit-line">
         <span>研究的浪漫 — The Romance of Research</span>
-        <span>东北大学 / Tohoku University</span>
+        <span>東北大学 / Tohoku University</span>
       </div>
     </section>
   </article>
 </main>
 
 <footer>
-  <p>&copy; 2026 Rongkang Pei (裴 榮康) &bull; The Romance of Research Fluid Edition &bull; Tohoku University</p>
+  <p>&copy; 2026 Rongkang PEI (裴荣康) &bull; The Romance of Research Fluid Edition &bull; Tohoku University</p>
 </footer>
 
 <script>
-  // 1. Initialize Lenis Smooth Inertia Scrolling (replicates Tohoku Romance fluid scroll feel)
+  // 1. Initialize Lenis Smooth Inertia Scrolling
   let lenis;
-  if (typeof Lenis !== 'undefined' && !window.matchMedia('(prefers-reduced-motion: reduce)').matches) {
+  if (typeof Lenis !== 'undefined') {
     lenis = new Lenis({
       duration: 1.25,
       easing: (t) => Math.min(1, 1.001 - Math.pow(2, -10 * t)),
@@ -859,7 +835,7 @@
     requestAnimationFrame(raf);
   }
 
-  // 2. IntersectionObserver for Staggered Fluid Reveal of Text & Editorial Figures
+  // 2. IntersectionObserver for Staggered Fluid Reveal
   let observer;
   function initScrollReveal() {
     if (observer) observer.disconnect();
@@ -891,7 +867,6 @@
     const progressBar = document.getElementById('scroll-progress');
     if (progressBar) progressBar.style.width = progress + '%';
 
-    // Subtle parallax zoom/shift on active hero portrait
     const activeHeroImg = document.querySelector('main[data-lang].active .parallax-hero');
     if (activeHeroImg && scrollTop < window.innerHeight * 1.5) {
       const translateY = scrollTop * 0.06;
@@ -906,7 +881,6 @@
       const isTarget = el.getAttribute('data-lang') === lang;
       el.classList.toggle('active', isTarget);
       if (isTarget) {
-        // Reset and trigger smooth entrance animations for the newly selected language
         el.querySelectorAll('.reveal-up, .editorial-figure').forEach(item => {
           item.classList.remove('is-visible');
         });
@@ -919,7 +893,7 @@
     });
 
     const langMap = { en: 'en', ja: 'ja', tw: 'zh-TW', cn: 'zh-CN' };
-    document.documentElement.lang = langMap[lang] || 'en';
+    document.documentElement.lang = langMap[lang] || 'ja';
 
     if (lenis) {
       lenis.scrollTo(0, { immediate: true });
@@ -930,7 +904,6 @@
     setTimeout(initScrollReveal, 60);
   }
 
-  // Initialize on first load
   window.addEventListener('DOMContentLoaded', () => {
     initScrollReveal();
   });
